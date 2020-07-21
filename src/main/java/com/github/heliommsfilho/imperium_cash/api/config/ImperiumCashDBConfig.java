@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.config.db;
+package com.github.heliommsfilho.imperium_cash.api.config;
 
 import java.util.Objects;
 import java.util.Properties;
@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.github.heliommsfilho.imperium-cash.api.repository",
+@EnableJpaRepositories(basePackages = "com.github.heliommsfilho.imperium_cash.api.repository",
                        entityManagerFactoryRef = "imperiumCashEntityManagerFactory",
                        transactionManagerRef   = "imperiumCashTransactionManager")
 public class ImperiumCashDBConfig {

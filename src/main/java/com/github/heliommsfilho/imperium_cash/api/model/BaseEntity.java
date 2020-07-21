@@ -14,7 +14,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-@EqualsAndHashCode
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
     

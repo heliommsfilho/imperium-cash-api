@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.config.swagger;
+package com.github.heliommsfilho.imperium_cash.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
