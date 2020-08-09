@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (6e3e5246a0, 2020-05-07)"
+   sodipodi:docname="generic_investment.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="679.62888"
+     inkscape:cy="344.50376"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1024"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#f5f5f5;fill-opacity:1;stroke-width:0.854044"
+       id="path833"
+       cx="100"
+       cy="100"
+       r="100" />
+    <g
+       transform="matrix(2.1184856,0,0,2.1184856,36.445432,36.445432)"
+       id="g1029">
+      <polygon
+         id="polygon1007"
+         points="18,47 25,32 31,40 42,23 48,31 59,14 59,57 3,57 3,48 12,39 "
+         style="fill:#71c285" />
+      <polygon
+         id="polygon1009"
+         points="48.061,32.747 42.061,24.747 31.061,41.747 25.201,33.935 18.201,48.935 11.892,40.522 3.707,48.707 2.293,47.293 12.108,37.478 17.799,45.065 24.799,30.065 30.939,38.253 41.939,21.253 47.939,29.253 58.16,13.457 59.84,14.543 "
+         style="fill:#f0c419" />
+      <path
+         id="path1011"
+         d="M 3,60 C 2.447,60 2,59.553 2,59 V 1 C 2,0.447 2.447,0 3,0 3.553,0 4,0.447 4,1 v 58 c 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+      <path
+         id="path1013"
+         d="M 59,58 H 1 C 0.447,58 0,57.553 0,57 0,56.447 0.447,56 1,56 h 58 c 0.553,0 1,0.447 1,1 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+      <path
+         id="path1015"
+         d="M 9,29 H 7 C 6.447,29 6,28.553 6,28 6,27.447 6.447,27 7,27 h 2 c 0.553,0 1,0.447 1,1 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+      <path
+         id="path1017"
+         d="M 9,25 H 7 C 6.447,25 6,24.553 6,24 6,23.447 6.447,23 7,23 h 2 c 0.553,0 1,0.447 1,1 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+      <path
+         id="path1019"
+         d="M 9,21 H 7 C 6.447,21 6,20.553 6,20 6,19.447 6.447,19 7,19 h 2 c 0.553,0 1,0.447 1,1 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+      <path
+         id="path1021"
+         d="M 9,17 H 7 C 6.447,17 6,16.553 6,16 6,15.447 6.447,15 7,15 h 2 c 0.553,0 1,0.447 1,1 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+      <path
+         id="path1023"
+         d="M 9,13 H 7 C 6.447,13 6,12.553 6,12 6,11.447 6.447,11 7,11 h 2 c 0.553,0 1,0.447 1,1 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+      <path
+         id="path1025"
+         d="M 9,9 H 7 C 6.447,9 6,8.553 6,8 6,7.447 6.447,7 7,7 h 2 c 0.553,0 1,0.447 1,1 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+      <path
+         id="path1027"
+         d="M 9,5 H 7 C 6.447,5 6,4.553 6,4 6,3.447 6.447,3 7,3 h 2 c 0.553,0 1,0.447 1,1 0,0.553 -0.447,1 -1,1 z"
+         style="fill:#8697cb" />
+    </g>
+  </g>
+</svg>

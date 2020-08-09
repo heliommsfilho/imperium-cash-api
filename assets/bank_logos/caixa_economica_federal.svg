@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (6e3e5246a0, 2020-05-07)"
+   sodipodi:docname="caixa_economica_federal.svg">
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath34">
+      <path
+         d="M -39.360001,-7.04 V 39.200001 H 98.879997 V -7.04 Z"
+         id="path32"
+         inkscape:connector-curvature="0"
+         style="clip-rule:evenodd" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath44">
+      <path
+         d="M 91.040001,82.879997 H 229.28 V 129.11999 H 91.040001 Z"
+         id="path42"
+         inkscape:connector-curvature="0"
+         style="clip-rule:evenodd" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="990.56859"
+     inkscape:cy="489.96672"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1024"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#f5f5f5;fill-opacity:1;stroke-width:0.854044"
+       id="path833"
+       cx="100.1"
+       cy="100"
+       r="100" />
+    <g
+       transform="matrix(0.31667911,0,0,0.31667911,73.407532,83.122699)"
+       id="g977">
+      <path
+         id="path4"
+         fill="#0d6fab"
+         d="m -25.218355,31.799403 -14.61168,36.409103 h 20.21545 l -5.53857,-36.563525 z M -102.62116,115.3722 -42.681685,-8.0172622 H 2.622085 L 27.899125,115.3722 h -39.78921 l -2.92371,-16.440724 h -38.59845 l -8.88094,16.440724 z m 149.349385,0 17.36381,-123.3894622 H 104.17979 L 86.819425,115.3722 Z m 266.603155,-83.727219 -14.67,36.563525 h 20.21546 z M 235.86681,115.3722 295.80628,-8.0172622 h 45.30035 L 366.38024,115.3722 H 326.59447 L 323.67075,98.931476 H 285.0723 L 276.19135,115.3722 Z M 147.24959,57.676976 h 50.22467 l 34.41877,57.005474 H 181.6581 Z"
+         style="stroke-width:3.43159" />
+      <path
+         id="path6"
+         d="m 152.46903,48.919574 h 51.91644 l 45.08759,-56.7583939 h -51.91644 z m -51.91641,66.109466 h 51.91641 l 45.08759,-57.458445 h -51.91643 z"
+         fill="#db8135"
+         style="stroke-width:3.43159" />
+      <path
+         id="path8"
+         d="m 119.27189,-8.5319997 h 48.45741 l 33.19714,57.4515737 h -48.45741 z m -220.70229,4.9346174 -3.8571,36.2889973 c -14.7764,-20.380176 -49.01674,-6.317546 -51.7071,19.072741 -3.41786,32.229435 29.53907,39.74803 47.47596,20.767945 l -3.8674,36.374789 c -5.35327,2.63546 -10.58643,4.67039 -15.75097,6.05331 a 64.455437,64.455437 0 0 1 -15.39751,2.22367 c -6.42392,0.13383 -12.24046,-0.54219 -17.48735,-2.01777 a 42.675175,42.675175 0 0 1 -14.18617,-6.87003 c -8.09854,-5.91948 -13.95282,-13.444954 -17.56284,-22.607277 -3.60317,-9.189781 -4.79392,-19.556595 -3.56199,-31.145054 0.9883,-9.309886 3.33893,-17.803056 7.07593,-25.503529 3.70611,-7.700473 8.83976,-14.69061 15.37692,-21.0321768 6.18029,-6.049882 12.90962,-10.6104562 20.19487,-13.712608 7.25094,-3.0712673 15.17104,-4.7115642 23.72941,-4.8900062 a 58.628608,58.628608 0 0 1 14.99602,1.578528 c 4.89,1.1701701 9.71481,2.9957726 14.52932,5.4184707 z"
+         fill="#0d6fab"
+         style="stroke-width:3.43159" />
+    </g>
+  </g>
+</svg>

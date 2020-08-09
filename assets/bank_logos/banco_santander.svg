@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (6e3e5246a0, 2020-05-07)"
+   sodipodi:docname="banco_santander.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="532.16524"
+     inkscape:cy="585.54503"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1024"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#ea1d25;fill-opacity:1;stroke-width:0.854044"
+       id="path833"
+       cx="100"
+       cy="100"
+       r="100" />
+    <path
+       sodipodi:nodetypes="cccccccccccccccccccccsscc"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:3.14906"
+       id="path2"
+       fill="#ea1d25"
+       d="m 130.22886,85.147457 c -0.3149,-4.723621 -1.57454,-9.447246 -4.0938,-13.54105 L 104.7213,34.132336 C 103.14676,31.298163 101.88713,28.149082 101.25731,25 l -0.94472,1.57454 c -5.353443,9.132337 -5.353443,20.783939 0,29.916277 l 17.31995,29.916275 c 5.35345,9.132329 5.35345,20.783938 0,29.916278 l -0.94473,1.57454 c -0.62981,-3.14908 -1.88944,-6.29816 -3.46398,-9.13234 L 97.478409,81.36856 87.40135,63.733702 c -1.574539,-2.834171 -2.834176,-5.983255 -3.463994,-9.132335 l -0.944722,1.574539 c -5.353438,9.132336 -5.353438,20.469033 0,29.916275 l 17.319956,29.916289 c 5.35344,9.13233 5.35344,20.78392 0,29.91625 l -0.944726,1.57455 c -0.629818,-3.14909 -1.889455,-6.29816 -3.463995,-9.13233 L 74.175212,100.89287 C 71.341035,95.854331 70.081399,90.185989 70.081399,84.517641 47.093106,90.500891 31.032791,103.41214 31.032791,118.21283 c 0,20.78392 30.860993,37.47405 68.964882,37.47405 38.103897,0 68.964897,-16.69013 68.964897,-37.47406 0.3149,-14.17088 -15.4305,-27.082109 -38.73371,-33.065363 z" />
+  </g>
+</svg>
