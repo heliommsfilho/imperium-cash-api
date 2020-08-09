@@ -44,7 +44,7 @@ public class CountryResourceTests extends AbstractTestResource {
     @Test
     void findByIdCountry_shouldReturnBrasil() throws Exception {
         expectOkMockMvc.perform(get("/country/{id}", 1))
-                .andExpect(jsonPath("$.code", is("US")));
+                .andExpect(jsonPath("$.code", is("BR")));
     }
 
     @Test
