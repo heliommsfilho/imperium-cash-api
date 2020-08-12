@@ -3,11 +3,9 @@ package com.github.heliommsfilho.imperium_cash.api.helper;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 
-@SpringBootTest
 public final class NumberHelperTest {
 
     @Test

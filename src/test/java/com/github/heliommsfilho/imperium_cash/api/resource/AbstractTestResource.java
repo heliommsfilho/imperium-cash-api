@@ -17,4 +17,11 @@ public abstract class AbstractTestResource {
                 .alwaysExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
                 .build();
     }
+
+    public static MockMvc getNoContentMvcMockInstance(IResource resource) {
+        return MockMvcBuilders.standaloneSetup(resource)
+                .alwaysDo(print())
+                .alwaysExpect(status().isNoContent())
+                .build();
+    }
 }

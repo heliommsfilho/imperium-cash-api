@@ -34,30 +34,30 @@ public class ImperiumCashDBConfig {
     /**
      * Value for {@code hibernate.hbm2ddl.auto} property.
      */
-    @Value( "${imperium-cash.app.database.hibernate.ddl-auto}" )
+    @Value( "${imperium-cash.api.database.hibernate.ddl-auto}" )
     private String hibernateDdlAuto;
 
     /**
      * Value for {@code hibernate.show_sql} property.
      */
-    @Value( "${imperium-cash.app.database.hibernate.show-sql}" )
+    @Value( "${imperium-cash.api.database.hibernate.show-sql}" )
     private String hibernateShowSql;
 
     /**
      * Value for {@code hibernate.format_sql} property.
      */
-    @Value( "${imperium-cash.app.database.hibernate.format-sql}" )
+    @Value( "${imperium-cash.api.database.hibernate.format-sql}" )
     private String hibernateFormatSql;
 
     /**
      * Enable or disable Spring's datasource initialization.
      */
-    @Value( "${imperium-cash.app.database.datasource.initialization-mode}" )
+    @Value( "${imperium-cash.api.database.datasource.initialization-mode}" )
     private String initializationMode;
     
     @Bean
     @Primary
-    @ConfigurationProperties("imperium-cash.app.database.datasource.connection")
+    @ConfigurationProperties("imperium-cash.api.database.datasource.connection")
     public DataSourceProperties imperiumCashDatasourceProperties() {
         DataSourceProperties dataSourceProperties = new DataSourceProperties();
         dataSourceProperties.setInitializationMode(DataSourceInitializationMode.valueOf(initializationMode));
@@ -67,7 +67,7 @@ public class ImperiumCashDBConfig {
 
     @Primary
     @Bean("imperiumCashDatasource")
-    @ConfigurationProperties("imperium-cash.app.database.datasource.configuration")
+    @ConfigurationProperties("imperium-cash.api.database.datasource.configuration")
     public DataSource imperiumCashDataSource() {
         return imperiumCashDatasourceProperties().initializeDataSourceBuilder().type(HikariDataSource.class).build();
     }

@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -19,39 +17,35 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CountryResourceTests extends AbstractTestResource {
-
-    @Autowired
-    private WebApplicationContext webApplicationContext;
     
     @Autowired
     private CountryResource countryResource;
     
-    private MockMvc expectOkMockMvc;
-    private MockMvc mockMvc;
+    private MockMvc okMockMvc;
+    private MockMvc noContentMockMvc;
 
     @BeforeAll
     void setup() {
-        expectOkMockMvc = getOkMvcMockInstance(countryResource);
-        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        okMockMvc = getOkMvcMockInstance(countryResource);
+        noContentMockMvc = getNoContentMvcMockInstance(countryResource);
     }
     
     @Test
     void findAllCountries_shouldReturnOk() throws Exception{
-        expectOkMockMvc.perform(get("/country"))
+        okMockMvc.perform(get("/country"))
                 .andExpect(jsonPath("$", hasSize(3)));
     }
     
     @Test
     void findByIdCountry_shouldReturnBrasil() throws Exception {
-        expectOkMockMvc.perform(get("/country/{id}", 1))
+        okMockMvc.perform(get("/country/{id}", 1))
                 .andExpect(jsonPath("$.code", is("BR")));
     }
 
     @Test
     void findByIdCountry_shouldReturnNothing() throws Exception {
-        mockMvc.perform(get("/country/{id}", 99999)
+        noContentMockMvc.perform(get("/country/{id}", 99999)
                .contentType(MediaType.APPLICATION_JSON_VALUE))
                .andExpect(status().isNoContent());
     }
-    
 }

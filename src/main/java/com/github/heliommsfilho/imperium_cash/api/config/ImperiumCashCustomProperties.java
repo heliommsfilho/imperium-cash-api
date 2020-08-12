@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author Hélio Márcio Filho <heliommsfilho@tutanota.com>
  */
 @Configuration
-@ConfigurationProperties(prefix = "imperium-cash.app")
+@ConfigurationProperties(prefix = "imperium-cash.api")
 public class ImperiumCashCustomProperties {
 
     /**
