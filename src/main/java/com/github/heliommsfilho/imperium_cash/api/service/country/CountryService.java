@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.service;
+package com.github.heliommsfilho.imperium_cash.api.service.country;
 
 import java.util.List;
 import java.util.Optional;

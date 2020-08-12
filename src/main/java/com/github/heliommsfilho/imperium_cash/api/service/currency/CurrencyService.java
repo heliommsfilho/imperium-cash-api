@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.service;
+package com.github.heliommsfilho.imperium_cash.api.service.currency;
 
 import com.github.heliommsfilho.imperium_cash.api.model.Currency;
 import com.github.heliommsfilho.imperium_cash.api.repository.currency.CurrencyRepository;

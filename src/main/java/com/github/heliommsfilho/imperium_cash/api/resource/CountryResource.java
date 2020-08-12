@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.github.heliommsfilho.imperium_cash.api.model.Country;
-import com.github.heliommsfilho.imperium_cash.api.service.CountryService;
+import com.github.heliommsfilho.imperium_cash.api.service.country.CountryService;
 
 /**
  * The {@link CountryResource}.

@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.resource;
 
 import com.github.heliommsfilho.imperium_cash.api.model.CurrencyFormat;
-import com.github.heliommsfilho.imperium_cash.api.service.CurrencyFormatService;
+import com.github.heliommsfilho.imperium_cash.api.service.currencyformat.CurrencyFormatService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

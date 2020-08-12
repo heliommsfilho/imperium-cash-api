@@ -1,7 +1,7 @@
-package com.github.heliommsfilho.imperium_cash.api.service;
+package com.github.heliommsfilho.imperium_cash.api.service.currencyformat;
 
 import com.github.heliommsfilho.imperium_cash.api.model.CurrencyFormat;
-import com.github.heliommsfilho.imperium_cash.api.repository.currency.format.CurrencyFormatRepository;
+import com.github.heliommsfilho.imperium_cash.api.repository.currencyformat.CurrencyFormatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

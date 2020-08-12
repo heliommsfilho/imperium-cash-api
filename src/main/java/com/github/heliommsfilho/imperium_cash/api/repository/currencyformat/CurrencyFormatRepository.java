@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.repository.currency.format;
+package com.github.heliommsfilho.imperium_cash.api.repository.currencyformat;
 
 import com.github.heliommsfilho.imperium_cash.api.model.CurrencyFormat;
 import org.springframework.data.jpa.repository.JpaRepository;
