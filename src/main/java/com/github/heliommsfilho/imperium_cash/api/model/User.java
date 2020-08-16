@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "imperium_cash")
 @Getter @Setter
 @EqualsAndHashCode(of = { "id" }, callSuper = true)
 public class User extends BaseEntity {
