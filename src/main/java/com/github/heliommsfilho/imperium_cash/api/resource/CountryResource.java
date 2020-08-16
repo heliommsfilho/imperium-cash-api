@@ -29,7 +29,7 @@ public class CountryResource implements IResource {
     /**
      * The {@link CountryService}.
      */
-    private CountryService countryService;
+    private final CountryService countryService;
     
     /**
      * Instantiates a new {@link CountryResource}.

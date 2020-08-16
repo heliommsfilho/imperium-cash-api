@@ -1,5 +1,5 @@
 -- Populate 'user' table
-INSERT INTO IMPERIUM_CASH.USER (TENANT_UUID, NAME, EMAIL, PASSWORD) VALUES ('63796157-4646-4627-a40f-9718e55d9216', 'Hélio Márcio Filho', 'heliommsfilho@gmail.com', '$2a$10$M2dh1tG1KEa8BWZ5WwWq1.MccU8Jvxpuu6iNAdFjwl8i41zz3X0g6');
+INSERT INTO IMPERIUM_CASH.USER (TENANT_UUID, NAME, EMAIL, PASSWORD) VALUES ('63796157-4646-4627-a40f-9718e55d9216', 'Hélio Márcio Filho', 'heliommsfilho@gmail.com', '$2a$10$l.bU8lPhy0AVi1zffT0AU.tO/yacKs4S7G74YwJzVWk4K0jBAXnAC');
 
 -- Populate 'country' table
 INSERT INTO IMPERIUM_CASH.COUNTRY (CODE, NAME) VALUES ('BR', 'Brasil');
