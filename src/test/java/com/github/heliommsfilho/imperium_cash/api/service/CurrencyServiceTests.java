@@ -21,7 +21,7 @@ public class CurrencyServiceTests {
     private CurrencyRepository currencyRepository;
 
     @Test
-    public void currencyGetAll_shoudReturnCurrencyList() {
+    public void currencyGetAll_shouldReturnCurrencyList() {
         when(currencyRepository.findAll()).thenReturn(getMockedCurrencyList());
         Assertions.assertFalse(currencyRepository.findAll().isEmpty());
         verify(currencyRepository).findAll();
