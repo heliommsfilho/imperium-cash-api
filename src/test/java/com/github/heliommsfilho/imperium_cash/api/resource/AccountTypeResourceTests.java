@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class AccountTypeResourceTests extends AbstractTestResource {
+class AccountTypeResourceTests extends AbstractTestResource {
 
     @Autowired
     private AccountTypeResource accountTypeResource;

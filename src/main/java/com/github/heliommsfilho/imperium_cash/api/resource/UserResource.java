@@ -1,6 +1,5 @@
 package com.github.heliommsfilho.imperium_cash.api.resource;
 
-import com.github.heliommsfilho.imperium_cash.api.model.Country;
 import com.github.heliommsfilho.imperium_cash.api.model.User;
 import com.github.heliommsfilho.imperium_cash.api.service.user.UserService;
 import io.swagger.annotations.*;

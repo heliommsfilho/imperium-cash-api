@@ -17,46 +17,46 @@ import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class AccountTypeServiceTests {
+class AccountTypeServiceTests {
 
     @Mock
     private AccountTypeRepository accountTypeRepository;
 
     @Test
-    public void accountTypeGetAll_shouldReturnAccountTypeList() {
+    void accountTypeGetAll_shouldReturnAccountTypeList() {
         when(accountTypeRepository.findAll()).thenReturn(AccountTypeServiceTests.getAccountTypes());
         Assertions.assertEquals(4, accountTypeRepository.findAll().size());
     }
 
     @Test
-    public void accountTypeGetById_shouldReturnAccountType() {
+    void accountTypeGetById_shouldReturnAccountType() {
         when(accountTypeRepository.findById(any(Long.class))).thenReturn(Optional.of(AccountTypeServiceTests.getAccountTypes().get(0)))
                                                              .thenReturn(Optional.of(AccountTypeServiceTests.getAccountTypes().get(1)))
                                                              .thenReturn(Optional.of(AccountTypeServiceTests.getAccountTypes().get(2)))
                                                              .thenReturn(Optional.of(AccountTypeServiceTests.getAccountTypes().get(3)));
-        Assertions.assertEquals(AccountTypeEnum.CHECKING, accountTypeRepository.findById(1L).get().getAccountType());
-        Assertions.assertEquals(AccountTypeEnum.WALLET, accountTypeRepository.findById(2L).get().getAccountType());
-        Assertions.assertEquals(AccountTypeEnum.SAVINGS, accountTypeRepository.findById(3L).get().getAccountType());
-        Assertions.assertEquals(AccountTypeEnum.INVESTIMENT, accountTypeRepository.findById(4L).get().getAccountType());
+        Assertions.assertEquals(AccountTypeEnum.CHECKING, accountTypeRepository.findById(1L).get().getAccountTypeEnum());
+        Assertions.assertEquals(AccountTypeEnum.WALLET, accountTypeRepository.findById(2L).get().getAccountTypeEnum());
+        Assertions.assertEquals(AccountTypeEnum.SAVINGS, accountTypeRepository.findById(3L).get().getAccountTypeEnum());
+        Assertions.assertEquals(AccountTypeEnum.INVESTIMENT, accountTypeRepository.findById(4L).get().getAccountTypeEnum());
     }
 
     private static List<AccountType> getAccountTypes() {
         List<AccountType> accountTypes = new ArrayList<>();
 
         AccountType accountTypeChecking = new AccountType();
-        accountTypeChecking.setAccountType(AccountTypeEnum.CHECKING);
+        accountTypeChecking.setAccountTypeEnum(AccountTypeEnum.CHECKING);
         accountTypeChecking.setName("Checking Account");
 
         AccountType accountTypeWallet = new AccountType();
-        accountTypeWallet.setAccountType(AccountTypeEnum.WALLET);
+        accountTypeWallet.setAccountTypeEnum(AccountTypeEnum.WALLET);
         accountTypeWallet.setName("Wallet");
 
         AccountType accountTypeSavings = new AccountType();
-        accountTypeSavings.setAccountType(AccountTypeEnum.SAVINGS);
+        accountTypeSavings.setAccountTypeEnum(AccountTypeEnum.SAVINGS);
         accountTypeSavings.setName("Savings Account");
 
         AccountType accountTypeInvestments = new AccountType();
-        accountTypeInvestments.setAccountType(AccountTypeEnum.INVESTIMENT);
+        accountTypeInvestments.setAccountTypeEnum(AccountTypeEnum.INVESTIMENT);
         accountTypeInvestments.setName("Investment Account");
 
         accountTypes.add(accountTypeChecking);

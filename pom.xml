@@ -19,6 +19,8 @@
 		<spring-boot-admin.version>2.2.1</spring-boot-admin.version>
 		<sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
+		<sonar.exclusions>**/model/*.java, **MavenWrapperDownloader.java</sonar.exclusions>
+		<sonar.coverage.exclusions>**/model/*.java</sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>

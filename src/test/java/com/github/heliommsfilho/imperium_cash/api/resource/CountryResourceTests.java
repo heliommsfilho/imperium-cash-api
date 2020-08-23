@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CountryResourceTests extends AbstractTestResource {
+class CountryResourceTests extends AbstractTestResource {
     
     @Autowired
     private CountryResource countryResource;

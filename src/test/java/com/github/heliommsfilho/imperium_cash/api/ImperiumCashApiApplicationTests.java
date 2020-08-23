@@ -13,13 +13,13 @@ class ImperiumCashApiApplicationTests {
 	}
 
 	@Test
-	public void main_ShouldStartup() {
-		ImperiumCashApiApplication.main(new String[]{});
+	void main_ShouldStartup() {
+		ImperiumCashApiApplication.main(new String[]{ "xyz" });
 		Assert.assertTrue(true);
 	}
 
 	@Test
-	public void main_ShouldThrowIllegalArgumentException() {
+	void main_ShouldThrowIllegalArgumentException() {
 		Assert.assertThrows(IllegalArgumentException.class, () -> ImperiumCashApiApplication.main(new String[]{"test"}));
 	}
 }

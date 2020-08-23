@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CurrencyFormatResourceTests extends AbstractTestResource {
+class CurrencyFormatResourceTests extends AbstractTestResource {
 
     @Autowired
     private CurrencyFormatResource currencyFormatResource;
@@ -26,7 +26,7 @@ public class CurrencyFormatResourceTests extends AbstractTestResource {
     }
 
     @Test
-    public void currencyFormatGetAll_shouldReturnCurrencyFormatList() throws Exception {
+    void currencyFormatGetAll_shouldReturnCurrencyFormatList() throws Exception {
         okMockMvc.perform(get("/currency_format")).andExpect(jsonPath("$", Matchers.hasSize(4)));
     }
 }

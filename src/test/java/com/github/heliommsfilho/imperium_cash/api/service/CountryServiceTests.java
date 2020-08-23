@@ -13,13 +13,13 @@ import java.util.Arrays;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class CountryServiceTests {
+class CountryServiceTests {
 
     @Mock
     private CountryRepository countryRepository;
 
     @Test
-    public void getAll_shouldReturnCountryList() {
+    void getAll_shouldReturnCountryList() {
         Country country1 = new Country();
         country1.setCode("BR");
         country1.setName("Brasil");
@@ -35,7 +35,7 @@ public class CountryServiceTests {
     }
 
     @Test
-    public void getOne_shouldReturnSingleCountry() {
+    void getOne_shouldReturnSingleCountry() {
         Country country1 = new Country();
         country1.setCode("BR");
         country1.setName("Brasil");

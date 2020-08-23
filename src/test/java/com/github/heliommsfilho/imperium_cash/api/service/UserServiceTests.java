@@ -14,19 +14,19 @@ import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTests {
+class UserServiceTests {
 
     @Mock
     private UserRepository userRepository;
 
     @Test
-    public void userGetById_shouldReturnHelioUser() {
+    void userGetById_shouldReturnHelioUser() {
         when(userRepository.findById(any(Long.class))).thenReturn(UserServiceTests.getUser());
         Assertions.assertEquals("heliommsfilho@gmail.com", userRepository.findById(1L).get().getEmail());
     }
 
     @Test
-    public void userGetByTenantUUID_shouldReturnHelioUser() {
+    void userGetByTenantUUID_shouldReturnHelioUser() {
         when(userRepository.findByTenantUUID(any(String.class))).thenReturn(Optional.empty());
         when(userRepository.findByTenantUUID("63796157-4646-4627-a40f-9718e55d9216")).thenReturn(UserServiceTests.getUser());
         Assertions.assertEquals("heliommsfilho@gmail.com", userRepository.findByTenantUUID("63796157-4646-4627-a40f-9718e55d9216").get().getEmail());

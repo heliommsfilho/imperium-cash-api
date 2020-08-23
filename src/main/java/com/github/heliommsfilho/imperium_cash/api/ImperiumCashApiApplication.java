@@ -20,6 +20,6 @@ public class ImperiumCashApiApplication {
 	}
 
 	private static List<String> getValidArguments() {
-		return Collections.emptyList();
+		return Arrays.asList("xyz");
 	}
 }

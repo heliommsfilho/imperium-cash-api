@@ -15,13 +15,13 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class CurrencyServiceTests {
+class CurrencyServiceTests {
 
     @Mock
     private CurrencyRepository currencyRepository;
 
     @Test
-    public void currencyGetAll_shouldReturnCurrencyList() {
+    void currencyGetAll_shouldReturnCurrencyList() {
         when(currencyRepository.findAll()).thenReturn(getMockedCurrencyList());
         Assertions.assertFalse(currencyRepository.findAll().isEmpty());
         verify(currencyRepository).findAll();

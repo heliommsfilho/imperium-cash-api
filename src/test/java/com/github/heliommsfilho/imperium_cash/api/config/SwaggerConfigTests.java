@@ -12,13 +12,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @SpringBootTest
-public class SwaggerConfigTests {
+class SwaggerConfigTests {
 
     @Autowired
     private Docket docket;
 
     @Test
-    public void docketBean_shouldNotBeNull() {
+    void docketBean_shouldNotBeNull() {
         assertThat(docket, is(not(nullValue())));
     }
 }

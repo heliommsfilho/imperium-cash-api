@@ -14,13 +14,13 @@ import java.util.List;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class CurrencyFormatServiceTests {
+class CurrencyFormatServiceTests {
 
     @Mock
     private CurrencyFormatRepository currencyFormatRepository;
 
     @Test
-    public void currencyFormatGetAll_shouldReturnCurrencyFormatList() {
+    void currencyFormatGetAll_shouldReturnCurrencyFormatList() {
         CurrencyFormat currencyFormat1 = new CurrencyFormat();
         currencyFormat1.setPattern("$_###,##0.00");
         currencyFormat1.setExamplePositive("$_123,456.78");

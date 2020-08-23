@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class CurrencyFormatService {
 
-    public CurrencyFormatRepository currencyFormatRepository;
+    public final CurrencyFormatRepository currencyFormatRepository;
 
     @Autowired
     public CurrencyFormatService(CurrencyFormatRepository currencyFormatRepository) {

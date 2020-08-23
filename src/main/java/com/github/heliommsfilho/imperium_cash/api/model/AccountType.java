@@ -18,7 +18,7 @@ public class AccountType extends BaseEntity {
     @NotNull
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
-    private AccountTypeEnum accountType;
+    private AccountTypeEnum accountTypeEnum;
 
     @NotBlank
     @Size(min = 1, max = 50)

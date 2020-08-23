@@ -15,13 +15,13 @@ import java.util.Arrays;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class DateFormatServiceTests {
+class DateFormatServiceTests {
 
     @Mock
     private DateFormatRepository dateFormatRepository;
 
     @Test
-    public void dateFormatGetAll_shouldReturnDateFormatList() {
+    void dateFormatGetAll_shouldReturnDateFormatList() {
         DateFormat dateFormat1 = new DateFormat();
         dateFormat1.setPattern("dd/MM/yyyy");
         dateFormat1.setExample("20/11/2020");

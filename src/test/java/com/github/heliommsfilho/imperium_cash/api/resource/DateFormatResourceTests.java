@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class DateFormatResourceTests extends AbstractTestResource {
+class DateFormatResourceTests extends AbstractTestResource {
 
     @Autowired
     private DateFormatResource dateFormatResource;
@@ -26,7 +26,7 @@ public class DateFormatResourceTests extends AbstractTestResource {
     }
 
     @Test
-    public void currencyFormatGetAll_shouldReturnCurrencyFormatList() throws Exception {
+    void currencyFormatGetAll_shouldReturnCurrencyFormatList() throws Exception {
         okMockMvc.perform(get("/date_format")).andExpect(jsonPath("$", Matchers.hasSize(9)));
     }
 }
