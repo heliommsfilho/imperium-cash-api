@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.BankLogo;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.banklogo.BankLogoRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.BankLogo;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.banklogo.BankLogoRepository;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

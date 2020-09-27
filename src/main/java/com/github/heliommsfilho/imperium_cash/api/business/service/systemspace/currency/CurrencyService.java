@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.currency;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Currency;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.currency.CurrencyRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.Currency;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.currency.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

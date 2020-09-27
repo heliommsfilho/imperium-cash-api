@@ -1,4 +1,8 @@
-package com.github.heliommsfilho.imperium_cash.api.domain.model;
+package com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace;
+
+import com.github.heliommsfilho.imperium_cash.api.domain.model.BaseEntity;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,14 +10,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import io.swagger.annotations.ApiModelProperty;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
 @Table(name = "country")
-@Getter @Setter
+@Data
 public class Country extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

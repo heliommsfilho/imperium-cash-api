@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.domain.model;
+package com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace;
 
 public enum AccountTypeEnum {
 

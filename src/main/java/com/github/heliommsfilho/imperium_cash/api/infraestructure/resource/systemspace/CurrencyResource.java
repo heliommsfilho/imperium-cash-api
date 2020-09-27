@@ -1,6 +1,6 @@
 package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Currency;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.Currency;
 import com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.currency.CurrencyService;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.IResource;
 import io.swagger.annotations.*;

@@ -1,8 +1,7 @@
-package com.github.heliommsfilho.imperium_cash.api.domain.model;
+package com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.BaseEntity;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -11,9 +10,14 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "account_type")
-@Getter @Setter
-@EqualsAndHashCode(of = { "id" }, callSuper = true)
+@Data
 public class AccountType extends BaseEntity {
+
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "bank_logo_id")
+    private BankLogo defaultBankLogo;
 
     @NotNull
     @Column(name = "type")

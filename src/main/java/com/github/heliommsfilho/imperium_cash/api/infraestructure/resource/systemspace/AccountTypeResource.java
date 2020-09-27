@@ -1,6 +1,6 @@
 package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.AccountType;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.AccountType;
 import com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.accounttype.AccountTypeService;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.IResource;
 import io.swagger.annotations.*;

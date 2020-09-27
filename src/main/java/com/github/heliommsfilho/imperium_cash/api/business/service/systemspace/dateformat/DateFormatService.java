@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.dateformat;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.DateFormat;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.dateformat.DateFormatRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.DateFormat;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.dateformat.DateFormatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

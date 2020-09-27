@@ -1,5 +1,6 @@
-package com.github.heliommsfilho.imperium_cash.api.domain.model;
+package com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace;
 
+import com.github.heliommsfilho.imperium_cash.api.domain.model.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

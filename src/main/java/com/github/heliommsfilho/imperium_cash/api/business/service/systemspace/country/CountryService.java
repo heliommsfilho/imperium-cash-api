@@ -3,8 +3,8 @@ package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.
 import java.util.List;
 import java.util.Optional;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Country;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.country.CountryRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.Country;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.country.CountryRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

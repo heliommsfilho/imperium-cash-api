@@ -1,6 +1,6 @@
-package com.github.heliommsfilho.imperium_cash.api.domain.repository.currency;
+package com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.currency;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Currency;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.Currency;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

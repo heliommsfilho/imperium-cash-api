@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.accounttype;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.AccountType;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.accounttype.AccountTypeRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.AccountType;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.accounttype.AccountTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

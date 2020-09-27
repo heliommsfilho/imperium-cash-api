@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.User;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.user.UserRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.User;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.user.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

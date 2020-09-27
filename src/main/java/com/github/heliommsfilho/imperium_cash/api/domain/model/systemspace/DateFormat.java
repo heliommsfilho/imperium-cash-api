@@ -1,9 +1,8 @@
-package com.github.heliommsfilho.imperium_cash.api.domain.model;
+package com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace;
 
+import com.github.heliommsfilho.imperium_cash.api.domain.model.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +12,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "date_format")
-@Getter @Setter
-@EqualsAndHashCode(of = { "id" }, callSuper = true)
+@Data
 public class DateFormat extends BaseEntity {
 
     @NotBlank

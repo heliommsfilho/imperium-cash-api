@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Country;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.Country;
 import com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.country.CountryService;
 
 /**

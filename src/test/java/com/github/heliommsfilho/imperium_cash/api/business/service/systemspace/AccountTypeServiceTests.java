@@ -1,8 +1,8 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.AccountType;
-import com.github.heliommsfilho.imperium_cash.api.domain.model.AccountTypeEnum;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.accounttype.AccountTypeRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.AccountType;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.AccountTypeEnum;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.accounttype.AccountTypeRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

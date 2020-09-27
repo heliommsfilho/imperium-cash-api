@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Currency;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.currency.CurrencyRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.Currency;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.currency.CurrencyRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

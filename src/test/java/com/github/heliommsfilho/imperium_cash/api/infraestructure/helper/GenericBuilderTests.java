@@ -1,6 +1,6 @@
 package com.github.heliommsfilho.imperium_cash.api.infraestructure.helper;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Country;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.Country;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

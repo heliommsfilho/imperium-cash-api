@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.banklogo;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.BankLogo;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.banklogo.BankLogoRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.BankLogo;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.banklogo.BankLogoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

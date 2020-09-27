@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace;
 
 import com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.banklogo.BankLogoService;
-import com.github.heliommsfilho.imperium_cash.api.domain.model.BankLogo;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.BankLogo;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.IResource;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;

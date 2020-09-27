@@ -1,7 +1,7 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.systemspace.user;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.User;
-import com.github.heliommsfilho.imperium_cash.api.domain.repository.user.UserRepository;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.User;
+import com.github.heliommsfilho.imperium_cash.api.domain.repository.systemspace.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
