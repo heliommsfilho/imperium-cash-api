@@ -1,17 +1,11 @@
 package com.github.heliommsfilho.imperium_cash.api.domain.model;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-
-import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter @Setter
 @MappedSuperclass
@@ -23,7 +17,6 @@ public abstract class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    @ApiModelProperty(value = "The resource ID", required = true, dataType = "long")
     @EqualsAndHashCode.Include
     private Long id;
 }
