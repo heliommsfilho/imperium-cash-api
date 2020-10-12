@@ -1,15 +1,20 @@
 package com.github.heliommsfilho.imperium_cash.api.infraestructure.helper;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.systemspace.Country;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.system.Country;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+@Tag("Helpers")
+@DisplayName("Generic Builder should")
 class GenericBuilderTests {
 
     @Test
-    void constructInstanceWithGenericBuilder_shouldSucceed() {
+    @DisplayName("create a new instance successfully")
+    void createInstance() {
         Country country = GenericBuilder.build(Country.class)
                                         .with(c -> c.setId(99L))
                                         .with(c -> c.setCode("CN"))
@@ -22,7 +27,8 @@ class GenericBuilderTests {
     }
 
     @Test
-    void constructInstanceWithGenericBuilder_shouldThrowsException() {
+    @DisplayName("throw exception when creating instance")
+    void throwsException() {
         Assertions.assertNull(GenericBuilder.build(LocalDate.class).get());
     }
 }

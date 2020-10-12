@@ -1,10 +1,7 @@
-package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace;
+package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.system;
 
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.AbstractTestResource;
-import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace.AccountTypeResource;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,6 +11,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
+@Tag("Integration Tests")
+@DisplayName("Account Type Resource should")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class AccountTypeResourceTests extends AbstractTestResource {
 
@@ -24,12 +23,12 @@ class AccountTypeResourceTests extends AbstractTestResource {
 
     @BeforeAll
     void setup() {
-        okMockMvc = getOkMvcMockInstance(accountTypeResource);
+        okMockMvc = getOkMockMvc(accountTypeResource);
     }
 
     @Test
-    void findAllAccountTypes_shouldReturnOk() throws Exception {
-        okMockMvc.perform(get("/account_type"))
-                .andExpect(jsonPath("$", hasSize(4)));
+    @DisplayName("return JSON list of Account Types")
+    void returnJsonListAccountTypes() throws Exception {
+        okMockMvc.perform(get("/account_type")).andExpect(jsonPath("$", hasSize(4)));
     }
 }

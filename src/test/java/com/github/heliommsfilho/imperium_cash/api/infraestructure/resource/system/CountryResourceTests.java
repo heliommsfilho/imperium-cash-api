@@ -1,10 +1,7 @@
-package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace;
+package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.system;
 
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.AbstractTestResource;
-import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace.CountryResource;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -17,6 +14,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
+@Tag("Integration Tests")
+@DisplayName("Country Resource should")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class CountryResourceTests extends AbstractTestResource {
     
@@ -28,26 +27,25 @@ class CountryResourceTests extends AbstractTestResource {
 
     @BeforeAll
     void setup() {
-        okMockMvc = getOkMvcMockInstance(countryResource);
+        okMockMvc = getOkMockMvc(countryResource);
         noContentMockMvc = getNoContentMvcMockInstance(countryResource);
     }
     
     @Test
-    void findAllCountries_shouldReturnOk() throws Exception{
-        okMockMvc.perform(get("/country"))
-                .andExpect(jsonPath("$", hasSize(3)));
+    @DisplayName("return JSON list of Countries")
+    void returnJsonListCountries() throws Exception{
+        okMockMvc.perform(get("/country")).andExpect(jsonPath("$", hasSize(3)));
     }
     
     @Test
-    void findByIdCountry_shouldReturnBrasil() throws Exception {
-        okMockMvc.perform(get("/country/{id}", 1))
-                .andExpect(jsonPath("$.code", is("BR")));
+    @DisplayName("return JSON Country 'Brasil'")
+    void returnJsonCountryBrasil() throws Exception {
+        okMockMvc.perform(get("/country/{id}", 1)).andExpect(jsonPath("$.code", is("BR")));
     }
 
     @Test
-    void findByIdCountry_shouldReturnNothing() throws Exception {
-        noContentMockMvc.perform(get("/country/{id}", 99999)
-               .contentType(MediaType.APPLICATION_JSON_VALUE))
-               .andExpect(status().isNoContent());
+    @DisplayName("return 'No Content' status for nonexistent Country")
+    void returnNoContentNonExistentCountry() throws Exception {
+        noContentMockMvc.perform(get("/country/{id}", 99999)).andExpect(status().isNoContent());
     }
 }

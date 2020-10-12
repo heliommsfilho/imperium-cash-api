@@ -5,12 +5,16 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import springfox.documentation.spring.web.plugins.Docket;
 
+@Tag("Configuration")
+@DisplayName("Swagger Configuration should")
 @SpringBootTest
 class SwaggerConfigTests {
 
@@ -18,7 +22,8 @@ class SwaggerConfigTests {
     private Docket docket;
 
     @Test
-    void docketBean_shouldNotBeNull() {
+    @DisplayName("return a not null Bean")
+    void returnNotNullBean() {
         assertThat(docket, is(not(nullValue())));
     }
 }

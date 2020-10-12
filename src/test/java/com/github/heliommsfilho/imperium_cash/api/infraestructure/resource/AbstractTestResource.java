@@ -10,18 +10,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public abstract class AbstractTestResource {
 
-    public static MockMvc getOkMvcMockInstance(IResource resource) {
+    public static MockMvc getOkMockMvc(AbstractResource resource) {
         return MockMvcBuilders.standaloneSetup(resource)
-                .alwaysDo(print())
-                .alwaysExpect(status().isOk())
-                .alwaysExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-                .build();
+                              .alwaysDo(print())
+                              .alwaysExpect(status().isOk())
+                              .alwaysExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+                              .build();
     }
 
-    public static MockMvc getNoContentMvcMockInstance(IResource resource) {
+    public static MockMvc getCreatedMockMvc(AbstractResource resource) {
         return MockMvcBuilders.standaloneSetup(resource)
-                .alwaysDo(print())
-                .alwaysExpect(status().isNoContent())
-                .build();
+                              .alwaysDo(print())
+                              .alwaysExpect(status().isCreated())
+                              .build();
+    }
+
+    public static MockMvc getNoContentMvcMockInstance(AbstractResource resource) {
+        return MockMvcBuilders.standaloneSetup(resource)
+                              .alwaysDo(print())
+                              .alwaysExpect(status().isNoContent())
+                              .build();
     }
 }

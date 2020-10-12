@@ -1,11 +1,8 @@
-package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace;
+package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.system;
 
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.AbstractTestResource;
-import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.systemspace.DateFormatResource;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
@@ -14,6 +11,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
+@Tag("Integration Tests")
+@DisplayName("Date Format Resource should")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class DateFormatResourceTests extends AbstractTestResource {
 
@@ -24,11 +23,12 @@ class DateFormatResourceTests extends AbstractTestResource {
 
     @BeforeAll
     void setup() {
-        okMockMvc = getOkMvcMockInstance(dateFormatResource);
+        okMockMvc = getOkMockMvc(dateFormatResource);
     }
 
     @Test
-    void currencyFormatGetAll_shouldReturnCurrencyFormatList() throws Exception {
+    @DisplayName("return JSON list of Date Formats")
+    void returnJsonListDateFormats() throws Exception {
         okMockMvc.perform(get("/date_format")).andExpect(jsonPath("$", Matchers.hasSize(9)));
     }
 }
