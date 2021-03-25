@@ -15,7 +15,7 @@
 	<description>Imperium Cash API - Personal Finance (Budget and Control)</description>
 
 	<properties>
-		<java.version>14</java.version>
+		<java.version>11</java.version>
 		<spring-boot-admin.version>2.2.1</spring-boot-admin.version>
 		<sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
@@ -90,6 +90,10 @@
 				<exclusion>
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>junit</groupId>
+					<artifactId>junit</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -182,8 +186,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>14</source>
-                    <target>14</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
 			<plugin>

@@ -1,6 +1,6 @@
 package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.user;
 
-import com.github.heliommsfilho.imperium_cash.api.business.service.user.budget.BudgetServicie;
+import com.github.heliommsfilho.imperium_cash.api.business.service.user.BudgetServicie;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.dto.budget.BudgetCreateDTO;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.dto.budget.BudgetGeneralResponseDTO;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.AbstractResource;

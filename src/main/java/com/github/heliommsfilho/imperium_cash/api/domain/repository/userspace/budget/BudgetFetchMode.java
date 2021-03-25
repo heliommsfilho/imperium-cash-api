@@ -3,6 +3,7 @@ package com.github.heliommsfilho.imperium_cash.api.domain.repository.userspace.b
 public enum BudgetFetchMode {
 
     NO_FETCH,
-    FETCH_PAYEE,
-    FETCH_GROUP_CATEGORY;
+    FETCH_PAYEES,
+    FETCH_GROUP_CATEGORIES,
+    FETCH_ACCOUNTS;
 }

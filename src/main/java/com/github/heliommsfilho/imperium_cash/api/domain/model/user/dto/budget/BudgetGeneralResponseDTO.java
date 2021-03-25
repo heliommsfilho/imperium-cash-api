@@ -1,5 +1,6 @@
 package com.github.heliommsfilho.imperium_cash.api.domain.model.user.dto.budget;
 
+import com.github.heliommsfilho.imperium_cash.api.domain.model.user.Account;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.GroupCategory;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.Payee;
 import io.swagger.annotations.ApiModelProperty;
@@ -46,4 +47,7 @@ public class BudgetGeneralResponseDTO {
 
     @ApiModelProperty(value = "Payees")
     private List<Payee> payees;
+
+    @ApiModelProperty(value = "Accounts")
+    private List<Account> accounts;
 }

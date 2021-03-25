@@ -1,10 +1,10 @@
 package com.github.heliommsfilho.imperium_cash.api.domain.repository.userspace.budget;
 
+import com.github.heliommsfilho.imperium_cash.api.domain.model.user.Account;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.Budget_;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.GroupCategory;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.Payee;
-import com.github.heliommsfilho.imperium_cash.api.domain.model.user.dto.budget.BudgetGeneralResponseDTO;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.helper.EntityDTOHelper;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,8 +77,9 @@ public class BudgetRepositoryImpl implements BudgetRepositoryQuery {
 
         if (hasAnyOtherFetchMode) {
             budgetList.forEach(budget -> {
-                Arrays.stream(fetchModes).filter(f -> f.equals(BudgetFetchMode.FETCH_PAYEE)).findAny().ifPresent(f -> budget.setPayees(fetchPayees(predicates)));
-                Arrays.stream(fetchModes).filter(f -> f.equals(BudgetFetchMode.FETCH_GROUP_CATEGORY)).findAny().ifPresent(f -> budget.setGroupCategories(fetchGroupCategories(predicates)));
+                Arrays.stream(fetchModes).filter(f -> f.equals(BudgetFetchMode.FETCH_PAYEES)).findAny().ifPresent(f -> budget.setPayees(fetchPayees(predicates)));
+                Arrays.stream(fetchModes).filter(f -> f.equals(BudgetFetchMode.FETCH_GROUP_CATEGORIES)).findAny().ifPresent(f -> budget.setGroupCategories(fetchGroupCategories(predicates)));
+                Arrays.stream(fetchModes).filter(f -> f.equals(BudgetFetchMode.FETCH_ACCOUNTS)).findAny().ifPresent(f -> budget.setAccounts(fetchAccounts(predicates)));
             });
         }
     }
@@ -119,5 +120,24 @@ public class BudgetRepositoryImpl implements BudgetRepositoryQuery {
         }
 
         return groupCategories;
+    }
+
+    private List<Account> fetchAccounts(Predicate[] predicates) {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Budget> query = cb.createQuery(Budget.class);
+        Root<Budget> root = query.from(Budget.class);
+        query.where(predicates);
+
+        root.fetch(Budget_.ACCOUNTS, JoinType.LEFT);
+        TypedQuery<Budget> resultQuery = entityManager.createQuery(query);
+
+        List<Account> accounts;
+        try {
+            accounts = resultQuery.getSingleResult().getAccounts();
+        } catch (NoResultException e) {
+            accounts = new ArrayList<>();
+        }
+
+        return accounts;
     }
 }

@@ -1,5 +1,6 @@
 package com.github.heliommsfilho.imperium_cash.api.domain.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.BaseEntity;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.system.Currency;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.system.CurrencyFormat;
@@ -7,17 +8,25 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.system.DateFormat
 import com.github.heliommsfilho.imperium_cash.api.domain.model.system.User;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "budget")
-@Data
 public class Budget extends BaseEntity {
 
     @NotBlank
@@ -60,19 +69,23 @@ public class Budget extends BaseEntity {
     @Column(name = "active")
     private Boolean active;
 
+    @JsonIgnore
     @NotNull
     @Column(name = "creation_date")
+    @CreationTimestamp
     private LocalDateTime creationDate;
 
     @NotNull
     @Column(name = "last_update")
+    @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
-    @OneToMany
-    @JoinColumn(name = "budget_id")
+    @OneToMany(mappedBy = "budget", fetch = FetchType.LAZY)
     private List<GroupCategory> groupCategories;
 
-    @OneToMany
-    @JoinColumn(name = "budget_id")
+    @OneToMany(mappedBy = "budget", fetch = FetchType.LAZY)
     private List<Payee> payees;
+
+    @OneToMany(mappedBy = "budget", fetch = FetchType.LAZY)
+    private List<Account> accounts;
 }

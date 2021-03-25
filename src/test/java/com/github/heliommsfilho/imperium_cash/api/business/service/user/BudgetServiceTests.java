@@ -1,5 +1,6 @@
-package com.github.heliommsfilho.imperium_cash.api.business.service.user.budget;
+package com.github.heliommsfilho.imperium_cash.api.business.service.user;
 
+import com.github.heliommsfilho.imperium_cash.api.business.service.user.BudgetServicie;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.system.Currency;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.system.CurrencyFormat;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.system.DateFormat;
@@ -8,8 +9,8 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.user.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.user.dto.budget.BudgetCreateDTO;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.userspace.budget.BudgetRepository;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.helper.GenericBuilder;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
@@ -107,6 +109,7 @@ class BudgetServiceTests {
 
     private static Budget getResultCreateBudget() {
         return GenericBuilder.build(Budget.class)
+                             .with(b -> b.setUuid(UUID.randomUUID().toString()))
                              .with(b -> b.setUser(new User()))
                              .with(b -> b.getUser().setId(1L))
                              .with(b -> b.setName("Name"))
@@ -118,6 +121,8 @@ class BudgetServiceTests {
                              .with(b -> b.setDateFormat(new DateFormat()))
                              .with(b -> b.getDateFormat().setId(1L))
                              .with(b -> b.setActive(true))
+                             .with(b -> b.setCreationDate(LocalDateTime.now()))
+                             .with(b -> b.setLastUpdate(b.getCreationDate()))
                              .get();
     }
 

@@ -2,7 +2,9 @@ package com.github.heliommsfilho.imperium_cash.api.infraestructure.helper;
 
 import org.hibernate.collection.spi.PersistentCollection;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MappingContext;
+import org.modelmapper.spi.MatchingStrategy;
 
 import java.util.List;
 import java.util.Optional;
