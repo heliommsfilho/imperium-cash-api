@@ -1,8 +1,8 @@
-package com.github.heliommsfilho.imperium_cash.api.resource.user;
+package com.github.heliommsfilho.imperium_cash.api.resource.external;
 
-import com.github.heliommsfilho.imperium_cash.api.business.service.external.GroupCategoryService;
-import com.github.heliommsfilho.imperium_cash.api.domain.api.input.GroupCategoryInput;
-import com.github.heliommsfilho.imperium_cash.api.domain.api.output.GroupCategoryOutput;
+import com.github.heliommsfilho.imperium_cash.api.business.service.external.PayeeService;
+import com.github.heliommsfilho.imperium_cash.api.domain.api.input.PayeeInput;
+import com.github.heliommsfilho.imperium_cash.api.domain.api.output.PayeeOutput;
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractResource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,25 +21,25 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/group_category")
-@Api(tags = { "Group Category" })
-@SwaggerDefinition(tags = { @Tag(name = "Group Category", description = "Operations for Group Category resource")})
-public class GroupCategoryResource extends AbstractResource {
+@RequestMapping("/payee")
+@Api(tags = { "Payee" })
+@SwaggerDefinition(tags = { @Tag(name = "Payee", description = "Operations for Payee resource")})
+public class PayeeResource extends AbstractResource {
 
-    private final GroupCategoryService groupCategoryService;
+    private final PayeeService payeeService;
 
     @Autowired
-    public GroupCategoryResource(GroupCategoryService groupCategoryService) {
-        this.groupCategoryService = groupCategoryService;
+    public PayeeResource(PayeeService payeeService) {
+        this.payeeService = payeeService;
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Create a new Group Category", response = GroupCategoryOutput.class)
-    @ApiResponses(value = { @ApiResponse(code = 201, message = "Group Category created"),
+    @ApiOperation(value = "Create a new Payee", response = PayeeOutput.class)
+    @ApiResponses(value = { @ApiResponse(code = 201, message = "Payee created"),
                             @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
-    public ResponseEntity<?> create(@RequestBody @Valid GroupCategoryInput createDTO) {
-        return created(groupCategoryService.create(createDTO), GroupCategoryOutput.class);
+    public ResponseEntity<?> create(@RequestBody @Valid PayeeInput createDTO) {
+        return created(payeeService.create(createDTO), PayeeOutput.class);
     }
 }

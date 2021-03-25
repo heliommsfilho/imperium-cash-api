@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.resource.system;
+package com.github.heliommsfilho.imperium_cash.api.resource.internal;
 
 import com.github.heliommsfilho.imperium_cash.api.business.service.internal.BankLogoService;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.output.BankLogoOutput;

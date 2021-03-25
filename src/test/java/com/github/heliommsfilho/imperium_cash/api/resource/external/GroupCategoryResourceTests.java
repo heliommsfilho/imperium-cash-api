@@ -1,7 +1,7 @@
-package com.github.heliommsfilho.imperium_cash.api.resource.user;
+package com.github.heliommsfilho.imperium_cash.api.resource.external;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.heliommsfilho.imperium_cash.api.domain.api.input.PayeeInput;
+import com.github.heliommsfilho.imperium_cash.api.domain.api.input.GroupCategoryInput;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractTestResource;
 import org.hamcrest.Matchers;
@@ -21,37 +21,37 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @Tag("Integration Tests")
-@DisplayName("Payee Resource should")
+@DisplayName("Group Category Resource should")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class PayeeResourceTests extends AbstractTestResource {
+public class GroupCategoryResourceTests extends AbstractTestResource {
 
     @Autowired
-    private PayeeResource payeeResource;
+    private GroupCategoryResource groupCategoryResource;
 
     private MockMvc createdMockMvc;
 
     @BeforeAll
     void setup() {
-        createdMockMvc = getCreatedMockMvc(payeeResource);
+        createdMockMvc = getCreatedMockMvc(groupCategoryResource);
     }
 
     @Test
-    @DisplayName("create a new Payee")
+    @DisplayName("create a new Group Category")
     @Transactional
-    void createNewPayee() throws Exception {
+    void createNewGroupCategory() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         final String json = mapper.writeValueAsString(getMockRequest());
 
-        createdMockMvc.perform(post("/payee")
+        createdMockMvc.perform(post("/group_category")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(json))
-                      .andExpect(jsonPath("$.name", Matchers.is("Pingo Doce")));
+                      .andExpect(jsonPath("$.name", Matchers.is("Despesas Ocasionais")));
     }
 
-    private PayeeInput getMockRequest() {
-        return GenericBuilder.build(PayeeInput.class)
+    private GroupCategoryInput getMockRequest() {
+        return GenericBuilder.build(GroupCategoryInput.class)
                              .with(p -> p.setBudgetId(1L))
-                             .with(p -> p.setName("Pingo Doce"))
+                             .with(p -> p.setName("Despesas Ocasionais"))
                              .get();
     }
 }

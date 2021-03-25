@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.resource.user;
+package com.github.heliommsfilho.imperium_cash.api.resource.external;
 
 import com.github.heliommsfilho.imperium_cash.api.business.service.external.AccountService;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.AccountInput;

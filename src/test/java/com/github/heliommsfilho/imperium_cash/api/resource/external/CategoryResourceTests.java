@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.resource.user;
+package com.github.heliommsfilho.imperium_cash.api.resource.external;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.CategoryInput;

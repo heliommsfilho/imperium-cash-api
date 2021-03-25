@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.resource.system;
+package com.github.heliommsfilho.imperium_cash.api.resource.internal;
 
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractTestResource;
 import org.hamcrest.Matchers;
@@ -12,23 +12,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @Tag("Integration Tests")
-@DisplayName("Date Format Resource should")
+@DisplayName("Currency Format Resource should")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class DateFormatResourceTests extends AbstractTestResource {
+class CurrencyFormatResourceTests extends AbstractTestResource {
 
     @Autowired
-    private DateFormatResource dateFormatResource;
+    private CurrencyFormatResource currencyFormatResource;
 
     private MockMvc okMockMvc;
 
     @BeforeAll
     void setup() {
-        okMockMvc = getOkMockMvc(dateFormatResource);
+        okMockMvc = getOkMockMvc(currencyFormatResource);
     }
 
     @Test
-    @DisplayName("return JSON list of Date Formats")
-    void returnJsonListDateFormats() throws Exception {
-        okMockMvc.perform(get("/date_format")).andExpect(jsonPath("$", Matchers.hasSize(9)));
+    @DisplayName("return JSON list of Currency Formats")
+    void returnJsonListCurrencyFormats() throws Exception {
+        okMockMvc.perform(get("/currency_format")).andExpect(jsonPath("$", Matchers.hasSize(4)));
     }
 }

@@ -1,4 +1,4 @@
-package com.github.heliommsfilho.imperium_cash.api.resource.system;
+package com.github.heliommsfilho.imperium_cash.api.resource.internal;
 
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractTestResource;
 import org.hamcrest.Matchers;
