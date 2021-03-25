@@ -1,5 +1,8 @@
 package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.system;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.system.dto.user.UserCreateDTO;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.AbstractTestResource;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,8 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -27,11 +32,28 @@ class UserResourceTests extends AbstractTestResource {
 
     private MockMvc okMockMvc;
     private MockMvc noContentMockMvc;
+    private MockMvc createdMockMvc;
 
     @BeforeAll
     void setup() {
         okMockMvc = getOkMockMvc(userResource);
         noContentMockMvc = getNoContentMvcMockInstance(userResource);
+        createdMockMvc = getCreatedMockMvc(userResource);
+    }
+
+    @Test
+    @DisplayName("create a new User")
+    @Transactional
+    void createNewUser() throws Exception {
+        UserCreateDTO userCreateDTO = new UserCreateDTO("Jonh Doe", "jonh.doe@gmail.com", "Some BCrypt Hash");
+        String json = (new ObjectMapper()).writeValueAsString(userCreateDTO);
+
+        createdMockMvc.perform(post("/user")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(json))
+                      .andExpect(jsonPath("$.uuid", Matchers.not(Matchers.blankOrNullString())))
+                      .andExpect(jsonPath("$.name", Matchers.is("Jonh Doe")))
+                      .andExpect(jsonPath("$.email", Matchers.is("jonh.doe@gmail.com")));
     }
 
     @Test

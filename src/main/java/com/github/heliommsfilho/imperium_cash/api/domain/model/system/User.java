@@ -41,12 +41,11 @@ public class User extends BaseEntity {
     private String password;
 
     @JsonIgnore
-    @NotNull
     @Column(name = "creation_date")
     @CreationTimestamp
     private LocalDateTime creationDate;
 
-    @NotNull
+    @JsonIgnore
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;

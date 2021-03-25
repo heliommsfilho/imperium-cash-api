@@ -2,6 +2,7 @@ package com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.syst
 
 import com.github.heliommsfilho.imperium_cash.api.business.service.system.user.UserService;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.system.User;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.system.dto.user.UserCreateDTO;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.system.dto.user.UserGeneralResponseDTO;
 import com.github.heliommsfilho.imperium_cash.api.infraestructure.resource.AbstractResource;
 import io.swagger.annotations.*;
@@ -10,8 +11,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/user")
@@ -24,6 +30,16 @@ public class UserResource extends AbstractResource {
     @Autowired
     public UserResource(UserService userService) {
         this.userService = userService;
+    }
+
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Create a new User", response = UserGeneralResponseDTO.class)
+    @ApiResponses(value = { @ApiResponse(code = 201, message = "User created"),
+                            @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
+                            @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
+                            @ApiResponse(code = 500, message = "Internal server error (please report)")})
+    public ResponseEntity<?> create(@RequestBody @Valid UserCreateDTO createDTO) {
+        return created(userService.create(createDTO), UserGeneralResponseDTO.class);
     }
 
     @GetMapping(value = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
