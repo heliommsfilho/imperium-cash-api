@@ -4,6 +4,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.Category;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.GroupCategory;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.CategoryInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.CategoryRepository;
+import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,22 +37,24 @@ class CategoryServiceTests {
     @Test
     @DisplayName("create a new Category")
     void createNewCategory() {
-        when(repository.save(any())).thenReturn(getMockResultCreateDTO());
-        Category category = service.create(getMockCreateDTO());
+        when(repository.save(any())).thenReturn(getMockResultInput());
 
-        Assertions.assertEquals(1L, category.getId());
-        Assertions.assertEquals(2L, category.getGroupCategory().getId());
-        Assertions.assertEquals("Category Name", category.getName());
+        Category categoryInput = EntityDTOHelper.getInstance().map(getInput(), Category.class);
+        Category categoryOutput = service.create(categoryInput);
+
+        Assertions.assertEquals(1L, categoryOutput.getId());
+        Assertions.assertEquals(2L, categoryOutput.getGroupCategory().getId());
+        Assertions.assertEquals("Category Name", categoryOutput.getName());
     }
 
-    private CategoryInput getMockCreateDTO() {
+    private CategoryInput getInput() {
         return GenericBuilder.build(CategoryInput.class)
                 .with(c -> c.setGroupCategoryId(2L))
                 .with(c -> c.setName("Category Name"))
                 .get();
     }
 
-    private Category getMockResultCreateDTO() {
+    private Category getMockResultInput() {
         return GenericBuilder.build(Category.class)
                 .with(c -> c.setId(1L))
                 .with(c -> c.setName("Category Name"))

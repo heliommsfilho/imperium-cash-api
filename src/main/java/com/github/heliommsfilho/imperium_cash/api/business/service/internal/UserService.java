@@ -20,8 +20,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User create(UserInput createDTO) {
-        User user = EntityDTOHelper.getInstance().map(createDTO, User.class);
+    public User create(UserInput input) {
+        User user = EntityDTOHelper.getInstance().map(input, User.class);
         user.setTenantUUID(UUID.randomUUID().toString());
 
         return userRepository.save(user);

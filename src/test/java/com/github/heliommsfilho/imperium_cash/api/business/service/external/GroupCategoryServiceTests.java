@@ -4,6 +4,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.GroupCategory;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.GroupCategoryInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.GroupCategoryRepository;
+import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,22 +37,24 @@ class GroupCategoryServiceTests {
     @Test
     @DisplayName("create a new Group Category")
     void createNewGroupCategory() {
-        when(repository.save(any())).thenReturn(getMockResoultCreateDTO());
-        GroupCategory savedGroupCategory = service.create(getMockCreateDTO());
+        when(repository.save(any())).thenReturn(getMockResoultInput());
+
+        GroupCategory groupCategory = EntityDTOHelper.getInstance().map(getInput(), GroupCategory.class);
+        GroupCategory savedGroupCategory = service.create(groupCategory);
 
         Assertions.assertEquals(1L, savedGroupCategory.getId());
         Assertions.assertEquals(2L, savedGroupCategory.getBudget().getId());
         Assertions.assertEquals("Group Category Name", savedGroupCategory.getName());
     }
 
-    private GroupCategoryInput getMockCreateDTO() {
+    private GroupCategoryInput getInput() {
         return GenericBuilder.build(GroupCategoryInput.class)
                 .with(g -> g.setBudgetId(1L))
                 .with(g -> g.setName("Group Category Name"))
                 .get();
     }
 
-    private GroupCategory getMockResoultCreateDTO() {
+    private GroupCategory getMockResoultInput() {
         return GenericBuilder.build(GroupCategory.class)
                 .with(g -> g.setId(1L))
                 .with(g -> g.setName("Group Category Name"))

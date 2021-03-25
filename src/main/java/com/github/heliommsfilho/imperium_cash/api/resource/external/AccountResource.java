@@ -3,6 +3,7 @@ package com.github.heliommsfilho.imperium_cash.api.resource.external;
 import com.github.heliommsfilho.imperium_cash.api.business.service.external.AccountService;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.AccountInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.output.AccountOutput;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.Account;
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractResource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,7 +40,8 @@ public class AccountResource extends AbstractResource {
                             @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
-    public ResponseEntity<?> create(@RequestBody @Valid AccountInput createDTO) {
-        return created(accountService.create(createDTO), AccountOutput.class);
+    public ResponseEntity<?> create(@RequestBody @Valid AccountInput input) {
+        Account newAccount = accountService.create(unwrapInput(input, Account.class));
+        return created(newAccount, AccountOutput.class);
     }
 }

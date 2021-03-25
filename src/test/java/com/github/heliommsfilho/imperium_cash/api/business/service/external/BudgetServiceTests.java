@@ -7,6 +7,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.User;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.BudgetInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.budget.BudgetRepository;
+import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -61,7 +62,9 @@ class BudgetServiceTests {
     @DisplayName("create a new Budget")
     void createNewBudget() {
         when(budgetRepository.save(any())).thenReturn(getResultCreateBudget());
-        Budget savedBudget = budgetService.create(getCreateDTO());
+
+        Budget budget = EntityDTOHelper.getInstance().map(getInput(), Budget.class);
+        Budget savedBudget = budgetService.create(budget);
 
         Assertions.assertNotNull(savedBudget.getUuid());
         Assertions.assertEquals(1, savedBudget.getUser().getId());
@@ -125,7 +128,7 @@ class BudgetServiceTests {
                              .get();
     }
 
-    private static BudgetInput getCreateDTO() {
+    private static BudgetInput getInput() {
         return GenericBuilder.build(BudgetInput.class)
                              .with(b -> b.setUuid("11111111-4646-4627-a40f-9718e55d0000"))
                              .with(b -> b.setName("Name"))

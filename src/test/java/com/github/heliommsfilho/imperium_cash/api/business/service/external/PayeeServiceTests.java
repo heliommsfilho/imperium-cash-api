@@ -4,6 +4,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Payee;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.PayeeInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.PayeeRepository;
+import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,22 +37,24 @@ public class PayeeServiceTests {
     @Test
     @DisplayName("create a new Payee")
     void createNewPayee() {
-        when(repository.save(any())).thenReturn(getMockResoultCreateDTO());
-        Payee savedPayee = service.create(getMockCreateDTO());
+        when(repository.save(any())).thenReturn(getMockResoultInput());
+
+        Payee payeeInput = EntityDTOHelper.getInstance().map(getInput(), Payee.class);
+        Payee savedPayee = service.create(payeeInput);
 
         Assertions.assertEquals(1L, savedPayee.getId());
         Assertions.assertEquals(2L, savedPayee.getBudget().getId());
         Assertions.assertEquals("Payee Name", savedPayee.getName());
     }
 
-    private PayeeInput getMockCreateDTO() {
+    private PayeeInput getInput() {
         return GenericBuilder.build(PayeeInput.class)
                              .with(p -> p.setBudgetId(1L))
                              .with(p -> p.setName("Payee Name"))
                              .get();
     }
 
-    private Payee getMockResoultCreateDTO() {
+    private Payee getMockResoultInput() {
         return GenericBuilder.build(Payee.class)
                              .with(p -> p.setId(1L))
                              .with(p -> p.setName("Payee Name"))

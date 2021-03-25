@@ -6,6 +6,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.Account;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.AccountInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.AccountRepository;
+import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,17 +39,19 @@ class AccountServiceTests {
     @Test
     @DisplayName("create a new Account")
     void createNewAccount() {
-        when(repository.save(any())).thenReturn(getMockResultCreateDTO());
-        Account account = service.create(getMockCreateDTO());
+        when(repository.save(any())).thenReturn(getMockResultInput());
 
-        Assertions.assertEquals(1L, account.getId());
-        Assertions.assertEquals(2L, account.getBudget().getId());
-        Assertions.assertEquals(3L, account.getAccountType().getId());
-        Assertions.assertEquals(4L, account.getBankLogo().getId());
-        Assertions.assertEquals("Account Name", account.getName());
+        Account accountInput = EntityDTOHelper.getInstance().map(getInput(), Account.class);
+        Account newAccount = service.create(accountInput);
+
+        Assertions.assertEquals(1L, newAccount.getId());
+        Assertions.assertEquals(2L, newAccount.getBudget().getId());
+        Assertions.assertEquals(3L, newAccount.getAccountType().getId());
+        Assertions.assertEquals(4L, newAccount.getBankLogo().getId());
+        Assertions.assertEquals("Account Name", newAccount.getName());
     }
 
-    private AccountInput getMockCreateDTO() {
+    private AccountInput getInput() {
         return GenericBuilder.build(AccountInput.class)
                              .with(a -> a.setBudgetId(1L))
                              .with(a -> a.setAccountTypeId(2L))
@@ -57,7 +60,7 @@ class AccountServiceTests {
                              .get();
     }
 
-    private Account getMockResultCreateDTO() {
+    private Account getMockResultInput() {
         return GenericBuilder.build(Account.class)
                              .with(a -> a.setId(1L))
                              .with(a -> a.setName("Account Name"))

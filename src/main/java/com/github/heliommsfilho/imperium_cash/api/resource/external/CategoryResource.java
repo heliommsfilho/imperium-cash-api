@@ -3,6 +3,7 @@ package com.github.heliommsfilho.imperium_cash.api.resource.external;
 import com.github.heliommsfilho.imperium_cash.api.business.service.external.CategoryService;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.CategoryInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.output.CategoryOutput;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.Category;
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractResource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,7 +40,8 @@ public class CategoryResource extends AbstractResource {
                             @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
-    public ResponseEntity<?> create(@RequestBody @Valid CategoryInput createDTO) {
-        return created(categoryService.create(createDTO), CategoryOutput.class);
+    public ResponseEntity<?> create(@RequestBody @Valid CategoryInput input) {
+        Category newCategory = categoryService.create(unwrapInput(input, Category.class));
+        return created(newCategory, CategoryOutput.class);
     }
 }

@@ -34,4 +34,8 @@ public abstract class AbstractResource {
     protected static ResponseEntity<?> noContent() {
         return ResponseEntity.noContent().build();
     }
+
+    protected static <T> T unwrapInput(Object object, Class<T> destinationType) {
+        return EntityDTOHelper.getInstance().map(object, destinationType);
+    }
 }

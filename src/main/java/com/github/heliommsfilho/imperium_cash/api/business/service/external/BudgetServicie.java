@@ -1,10 +1,8 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.external;
 
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
-import com.github.heliommsfilho.imperium_cash.api.domain.api.input.BudgetInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.budget.BudgetFetchMode;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.budget.BudgetRepository;
-import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,9 +32,10 @@ public class BudgetServicie {
         return budgetRepository.getAll();
     }
 
-    public Budget create(BudgetInput createDTO) {
-        Budget budget = EntityDTOHelper.getInstance().map(createDTO, Budget.class);
+    public Budget create(Budget budget) {
+        budget.setId(null);
         budget.setUuid(UUID.randomUUID().toString());
+
         return budgetRepository.save(budget);
     }
 

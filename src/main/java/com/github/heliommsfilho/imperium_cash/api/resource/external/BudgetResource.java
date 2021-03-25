@@ -3,6 +3,7 @@ package com.github.heliommsfilho.imperium_cash.api.resource.external;
 import com.github.heliommsfilho.imperium_cash.api.business.service.external.BudgetServicie;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.BudgetInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.output.BudgetOutput;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractResource;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,8 +66,9 @@ public class BudgetResource extends AbstractResource {
                             @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
-    public ResponseEntity<?> create(@Valid BudgetInput createDTO) {
-        return created(budgetServicie.create(createDTO), BudgetOutput.class);
+    public ResponseEntity<?> create(@Valid BudgetInput input) {
+        Budget newBudget = budgetServicie.create(unwrapInput(input, Budget.class));
+        return created(newBudget, BudgetOutput.class);
     }
 
     @ResponseStatus(HttpStatus.OK)
