@@ -38,7 +38,8 @@ public class UserResource extends AbstractResource {
                             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
     public ResponseEntity<?> create(@RequestBody @Valid UserInput input) {
-        return created(userService.create(input), UserOutput.class);
+        User user = userService.create(unwrapInput(input, User.class));
+        return created(user, UserOutput.class);
     }
 
     @GetMapping(value = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

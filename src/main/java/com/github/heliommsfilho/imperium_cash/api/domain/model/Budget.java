@@ -60,10 +60,6 @@ public class Budget extends BaseEntity {
     @ApiModelProperty(value = "Date Format", required = true)
     private DateFormat dateFormat;
 
-    @NotNull
-    @Column(name = "active")
-    private Boolean active;
-
     @JsonIgnore
     @NotNull
     @Column(name = "creation_date")

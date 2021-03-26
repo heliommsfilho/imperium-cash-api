@@ -1,8 +1,5 @@
 package com.github.heliommsfilho.imperium_cash.api.domain.api.output;
 
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Account;
-import com.github.heliommsfilho.imperium_cash.api.domain.model.GroupCategory;
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Payee;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -14,9 +11,6 @@ public class BudgetOutput {
 
     @ApiModelProperty(value = "Budget UUID")
     private String uuid;
-
-    @ApiModelProperty(value = "Budget User ID")
-    private Long userId;
 
     @ApiModelProperty(value = "Budget Name")
     private String name;
@@ -33,9 +27,6 @@ public class BudgetOutput {
     @ApiModelProperty(value = "Date Format ID")
     private Long dateFormatId;
 
-    @ApiModelProperty(value = "Is active?")
-    private Boolean active;
-
     @ApiModelProperty(value = "Creation Date")
     private LocalDateTime creationDate;
 
@@ -43,11 +34,40 @@ public class BudgetOutput {
     private LocalDateTime lastUpdate;
 
     @ApiModelProperty(value = "Group Categories")
-    private List<GroupCategory> groupCategories;
+    private List<BudgetOutput.GroupCategoryOutput> groupCategories;
 
     @ApiModelProperty(value = "Payees")
-    private List<Payee> payees;
+    private List<BudgetOutput.PayeeOutput> payees;
 
     @ApiModelProperty(value = "Accounts")
-    private List<Account> accounts;
+    private List<BudgetOutput.AccountOutput> accounts;
+
+    @Data
+    static class GroupCategoryOutput {
+
+        private Long id;
+        private String name;
+        private List<GroupCategoryOutput.CategoryOutput> categories;
+
+        @Data
+        static class CategoryOutput {
+
+            private Long id;
+            private String name;
+        }
+    }
+
+    @Data
+    static class AccountOutput {
+
+        private Long id;
+        private String name;
+    }
+
+    @Data
+    static class PayeeOutput {
+
+        private Long id;
+        private String name;
+    }
 }

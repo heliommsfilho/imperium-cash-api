@@ -5,12 +5,21 @@ import com.github.heliommsfilho.imperium_cash.api.domain.api.input.BudgetInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.output.BudgetOutput;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractResource;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -69,33 +78,5 @@ public class BudgetResource extends AbstractResource {
     public ResponseEntity<?> create(@Valid BudgetInput input) {
         Budget newBudget = budgetServicie.create(unwrapInput(input, Budget.class));
         return created(newBudget, BudgetOutput.class);
-    }
-
-    @ResponseStatus(HttpStatus.OK)
-    @PatchMapping(value = "/{id}", params = "activate", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Activate a Budget ")
-    @ApiResponses(value = { @ApiResponse(code = 200, message = "Budget successfully activated"),
-                            @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
-                            @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
-                            @ApiResponse(code = 404, message = "Cannot find Budget with specified ID"),
-                            @ApiResponse(code = 500, message = "Internal server error (please report)")})
-    public ResponseEntity<?> activate(@PathVariable @ApiParam(value = "The Budget ID", required = true, type = "long", example = "1") Long id) {
-        budgetServicie.activate(id);
-
-        return noContent();
-    }
-
-    @ResponseStatus(HttpStatus.OK)
-    @PatchMapping(value = "/{id}", params = "inactivate", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Inactivate a Budget ")
-    @ApiResponses(value = { @ApiResponse(code = 200, message = "Budget successfully inactivated"),
-                            @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
-                            @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
-                            @ApiResponse(code = 404, message = "Cannot find Budget with specified ID"),
-                            @ApiResponse(code = 500, message = "Internal server error (please report)")})
-    public ResponseEntity<?> inactivate(@PathVariable @ApiParam(value = "The Budget ID", required = true, type = "long", example = "1") Long id) {
-        budgetServicie.inactivate(id);
-
-        return noContent();
     }
 }

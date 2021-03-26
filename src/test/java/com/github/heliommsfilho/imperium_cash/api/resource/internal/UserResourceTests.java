@@ -43,7 +43,7 @@ class UserResourceTests extends AbstractTestResource {
     @Test
     @DisplayName("create a new User")
     @Transactional
-    void createNewUser() throws Exception {
+    void createNewUser__shouldSucceed() throws Exception {
         UserInput userInput = new UserInput("Jonh Doe", "jonh.doe@gmail.com", "Some BCrypt Hash");
         String json = (new ObjectMapper()).writeValueAsString(userInput);
 
@@ -59,7 +59,7 @@ class UserResourceTests extends AbstractTestResource {
     @DisplayName("return JSON User for given ID")
     void returnJsonUserForId() throws Exception {
         okMockMvc.perform(get("/user/id/{id}", 1))
-                 .andExpect(jsonPath("$.email", Matchers.is("heliommsfilho@gmail.com")));
+                 .andExpect(jsonPath("$.email", Matchers.is("john.doe@gmail.com")));
     }
 
     @Test
@@ -72,7 +72,7 @@ class UserResourceTests extends AbstractTestResource {
     @DisplayName("return JSON User for given UUID")
     void returnJsonUserForUuid() throws Exception {
         okMockMvc.perform(get("/user/uuid/{uuid}", "63796157-4646-4627-a40f-9718e55d9216"))
-                 .andExpect(jsonPath("$.email", Matchers.is("heliommsfilho@gmail.com")));
+                 .andExpect(jsonPath("$.email", Matchers.is("john.doe@gmail.com")));
     }
 
     @Test

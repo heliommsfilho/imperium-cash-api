@@ -16,7 +16,8 @@ class MessagesHelperTest {
     @Test
     @DisplayName("return the correct E000001 test message")
     void getE000001Property() {
-        MatcherAssert.assertThat(MessagesHelper.getMessage(MessageConstants.TEST, "A"), is("Test 'A'"));
+        MatcherAssert.assertThat(MessagesHelper.getMessage(MessageConstants.ERROR_ENTITY_ALREADY_REGISTERED, "User", "test@email.com"),
+                                 is("Entity 'User' already registered with identifier 'test@email.com'."));
     }
 
     @Test

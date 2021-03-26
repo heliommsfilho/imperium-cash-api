@@ -2,15 +2,17 @@ package com.github.heliommsfilho.imperium_cash.api.resource.external;
 
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractTestResource;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -51,6 +53,7 @@ class BudgetResourceTests extends AbstractTestResource {
                  .andExpect(jsonPath("$.groupCategories[0].categories", Matchers.hasSize(2)))
                  .andExpect(jsonPath("$.groupCategories[1].categories", Matchers.hasSize(1)))
                  .andExpect(jsonPath("$.groupCategories[2].categories", Matchers.hasSize(1)));
+
     }
 
     @Test
@@ -72,19 +75,5 @@ class BudgetResourceTests extends AbstractTestResource {
         noContentMockMvc.perform(get("/budget/{id}", 99)
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                         .andExpect(status().isNoContent());
-    }
-
-    @Test
-    @Transactional
-    @DisplayName("activate a Budget")
-    void activateBudget() throws Exception {
-        noContentMockMvc.perform(patch("/budget/{id}?activate", 1));
-    }
-
-    @Test
-    @Transactional
-    @DisplayName("inactivate a Budget")
-    void inactivateBudget() throws Exception {
-        noContentMockMvc.perform(patch("/budget/{id}?inactivate", 1));
     }
 }

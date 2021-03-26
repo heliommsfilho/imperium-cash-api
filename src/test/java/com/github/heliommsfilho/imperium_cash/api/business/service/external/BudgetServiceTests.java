@@ -1,11 +1,11 @@
 package com.github.heliommsfilho.imperium_cash.api.business.service.external;
 
+import com.github.heliommsfilho.imperium_cash.api.domain.api.input.BudgetInput;
+import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Currency;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.CurrencyFormat;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.DateFormat;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.User;
-import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
-import com.github.heliommsfilho.imperium_cash.api.domain.api.input.BudgetInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.budget.BudgetRepository;
 import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
@@ -53,7 +53,6 @@ class BudgetServiceTests {
         Assertions.assertEquals(1L, budget.get().getCurrency().getId());
         Assertions.assertEquals(1L, budget.get().getCurrencyFormat().getId());
         Assertions.assertEquals(1L, budget.get().getDateFormat().getId());
-        Assertions.assertTrue(budget.get().getActive());
         Assertions.assertNotNull(budget.get().getCreationDate());
         Assertions.assertNotNull(budget.get().getLastUpdate());
     }
@@ -78,16 +77,6 @@ class BudgetServiceTests {
         Assertions.assertEquals(savedBudget.getCreationDate(), savedBudget.getLastUpdate());
     }
 
-    @Test
-    public void inactivate() {
-        budgetService.inactivate(1L);
-    }
-
-    @Test
-    public void activate() {
-        budgetService.activate(1L);
-    }
-
     private static Optional<Budget> getResultBudget() {
         Budget budget = GenericBuilder.build(Budget.class)
                                       .with(b -> b.setUuid("63796157-4646-4627-a40f-9718e55d9999"))
@@ -101,7 +90,6 @@ class BudgetServiceTests {
                                       .with(b -> b.getCurrencyFormat().setId(1L))
                                       .with(b -> b.setDateFormat(new DateFormat()))
                                       .with(b -> b.getDateFormat().setId(1L))
-                                      .with(b -> b.setActive(true))
                                       .with(b -> b.setCreationDate(LocalDateTime.now()))
                                       .with(b -> b.setLastUpdate(LocalDateTime.now()))
                                       .get();
@@ -122,7 +110,6 @@ class BudgetServiceTests {
                              .with(b -> b.getCurrencyFormat().setId(1L))
                              .with(b -> b.setDateFormat(new DateFormat()))
                              .with(b -> b.getDateFormat().setId(1L))
-                             .with(b -> b.setActive(true))
                              .with(b -> b.setCreationDate(LocalDateTime.now()))
                              .with(b -> b.setLastUpdate(b.getCreationDate()))
                              .get();

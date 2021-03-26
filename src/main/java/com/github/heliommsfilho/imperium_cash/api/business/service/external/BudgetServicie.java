@@ -38,12 +38,4 @@ public class BudgetServicie {
 
         return budgetRepository.save(budget);
     }
-
-    public void activate(Long id) {
-        budgetRepository.updateStatus(id, true);
-    }
-
-    public void inactivate(Long id) {
-        budgetRepository.updateStatus(id, false);
-    }
 }
