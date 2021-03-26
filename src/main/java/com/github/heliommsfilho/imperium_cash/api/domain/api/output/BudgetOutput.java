@@ -18,14 +18,17 @@ public class BudgetOutput {
     @ApiModelProperty(value = "Budget Description")
     private String description;
 
-    @ApiModelProperty(value = "Currency ID")
-    private Long currencyId;
+    @ApiModelProperty(value = "Currency Code")
+    private String currencyCode;
 
-    @ApiModelProperty(value = "Currency Format ID")
-    private Long currencyFormatId;
+    @ApiModelProperty(value = "Currency Symbol")
+    private String currencySymbol;
 
-    @ApiModelProperty(value = "Date Format ID")
-    private Long dateFormatId;
+    @ApiModelProperty(value = "Currency Format Pattern")
+    private String currencyFormatPattern;
+
+    @ApiModelProperty(value = "Date Format Pattern")
+    private String dateFormatPattern;
 
     @ApiModelProperty(value = "Creation Date")
     private LocalDateTime creationDate;
@@ -45,14 +48,12 @@ public class BudgetOutput {
     @Data
     static class GroupCategoryOutput {
 
-        private Long id;
         private String name;
         private List<GroupCategoryOutput.CategoryOutput> categories;
 
         @Data
         static class CategoryOutput {
 
-            private Long id;
             private String name;
         }
     }
@@ -60,14 +61,12 @@ public class BudgetOutput {
     @Data
     static class AccountOutput {
 
-        private Long id;
         private String name;
     }
 
     @Data
     static class PayeeOutput {
 
-        private Long id;
         private String name;
     }
 }
