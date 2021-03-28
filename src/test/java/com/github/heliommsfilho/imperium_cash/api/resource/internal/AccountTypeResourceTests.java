@@ -11,7 +11,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
-@Tag("Integration Tests")
+@Tag("IntegrationTests")
 @DisplayName("Account Type Resource should")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class AccountTypeResourceTests extends AbstractTestResource {
