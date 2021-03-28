@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-public class BudgetOutput {
+public class BudgetCompleteOutput {
 
     @ApiModelProperty(value = "Budget UUID")
     private String uuid;
@@ -37,13 +37,13 @@ public class BudgetOutput {
     private LocalDateTime lastUpdate;
 
     @ApiModelProperty(value = "Group Categories")
-    private List<BudgetOutput.GroupCategoryOutput> groupCategories;
+    private List<BudgetCompleteOutput.GroupCategoryOutput> groupCategories;
 
     @ApiModelProperty(value = "Payees")
-    private List<BudgetOutput.PayeeOutput> payees;
+    private List<BudgetCompleteOutput.PayeeOutput> payees;
 
     @ApiModelProperty(value = "Accounts")
-    private List<BudgetOutput.AccountOutput> accounts;
+    private List<BudgetCompleteOutput.AccountOutput> accounts;
 
     @Data
     static class GroupCategoryOutput {

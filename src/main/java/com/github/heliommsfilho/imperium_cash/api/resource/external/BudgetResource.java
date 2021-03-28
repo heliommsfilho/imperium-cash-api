@@ -2,7 +2,8 @@ package com.github.heliommsfilho.imperium_cash.api.resource.external;
 
 import com.github.heliommsfilho.imperium_cash.api.business.service.external.BudgetServicie;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.BudgetInput;
-import com.github.heliommsfilho.imperium_cash.api.domain.api.output.BudgetOutput;
+import com.github.heliommsfilho.imperium_cash.api.domain.api.output.BudgetCompleteOutput;
+import com.github.heliommsfilho.imperium_cash.api.domain.api.output.BudgetSummaryOutput;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractResource;
 import io.swagger.annotations.Api;
@@ -38,45 +39,45 @@ public class BudgetResource extends AbstractResource {
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Get a specific Budget by ID (without details)", response = BudgetOutput.class)
+    @ApiOperation(value = "Get a specific Budget by ID (without details)", response = BudgetCompleteOutput.class)
     @ApiResponses(value = { @ApiResponse(code = 200, message = "Budget successfully retrieved"),
             @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
             @ApiResponse(code = 404, message = "Cannot find Budget with specified ID"),
             @ApiResponse(code = 500, message = "Internal server error (please report)")})
     public ResponseEntity<?> getById(@PathVariable @ApiParam(value = "The Budget ID", required = true, type = "long", example = "0") Long id) {
-        return okOrNoContent(budgetServicie.getBudget(id), BudgetOutput.class);
+        return okOrNoContent(budgetServicie.getBudget(id), BudgetSummaryOutput.class);
     }
 
     @GetMapping(value = "/{id}", params = "detailed", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Get a specific Budget by ID (without details)", response = BudgetOutput.class)
+    @ApiOperation(value = "Get a specific Budget by ID (without details)", response = BudgetCompleteOutput.class)
     @ApiResponses(value = { @ApiResponse(code = 200, message = "Budget successfully retrieved"),
             @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
             @ApiResponse(code = 404, message = "Cannot find Budget with specified ID"),
             @ApiResponse(code = 500, message = "Internal server error (please report)")})
     public ResponseEntity<?> getByIdWithDetails(@PathVariable @ApiParam(value = "The Budget ID", required = true, type = "long", example = "0") Long id) {
-        return okOrNoContent(budgetServicie.getBudgetWithDetails(id), BudgetOutput.class);
+        return okOrNoContent(budgetServicie.getBudgetWithDetails(id), BudgetCompleteOutput.class);
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Get all Budgets (without details)", response = BudgetOutput.class)
+    @ApiOperation(value = "Get all Budgets (without details)", response = BudgetCompleteOutput.class)
     @ApiResponses(value = { @ApiResponse(code = 200, message = "Budgets successfully retrieved"),
             @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
             @ApiResponse(code = 500, message = "Internal server error (please report)")})
     public ResponseEntity<List<?>> getAll() {
-        return ok(budgetServicie.getAll(), BudgetOutput.class);
+        return ok(budgetServicie.getAll(), BudgetSummaryOutput.class);
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Create a new Budget", response = BudgetOutput.class)
+    @ApiOperation(value = "Create a new Budget", response = BudgetCompleteOutput.class)
     @ApiResponses(value = { @ApiResponse(code = 201, message = "Budget created"),
                             @ApiResponse(code = 401, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 403, message = "Operation not permitted (lack of permission)"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
     public ResponseEntity<?> create(@Valid BudgetInput input) {
         Budget newBudget = budgetServicie.create(unwrapInput(input, Budget.class));
-        return created(newBudget, BudgetOutput.class);
+        return created(newBudget, BudgetCompleteOutput.class);
     }
 }
