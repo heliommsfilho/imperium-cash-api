@@ -66,7 +66,7 @@ class UserServiceTests {
                                             .with(u -> u.setLastUpdate(u.getCreationDate()))
                                             .get();
 
-        when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(userOutputMock));
+        when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(1L));
         Exception exception = Assertions.assertThrows(EntityAlreadyRegisteredException.class,
                                                       () -> userService.create(getInput()));
 

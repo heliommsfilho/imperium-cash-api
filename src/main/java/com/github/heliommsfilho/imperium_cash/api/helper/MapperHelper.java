@@ -7,21 +7,21 @@ import org.modelmapper.spi.MappingContext;
 import java.util.List;
 import java.util.Optional;
 
-public class EntityDTOHelper {
+public class MapperHelper {
 
     private static ModelMapper mapper;
 
     /**
      * Private not-instantiable constructor.
      * */
-    private EntityDTOHelper() {
+    private MapperHelper() {
         throw new IllegalStateException("EntityDTOHelper is static and should not be instantiated");
     }
 
     /**
-     * Returns {@link EntityDTOHelper#mapper} instance.
+     * Returns {@link MapperHelper#mapper} instance.
      *
-     * @return {@link EntityDTOHelper#mapper}.
+     * @return {@link MapperHelper#mapper}.
      * */
     public static ModelMapper getInstance() {
         if (mapper == null) {
@@ -41,11 +41,11 @@ public class EntityDTOHelper {
     }
 
     /**
-     * Initialize {@link EntityDTOHelper#mapper}.
+     * Initialize {@link MapperHelper#mapper}.
      * */
     private static void create() {
         mapper =  new ModelMapper();
-        mapper.getConfiguration().setPropertyCondition(EntityDTOHelper::avoidLazyInitializationExceptionCondition);
+        mapper.getConfiguration().setPropertyCondition(MapperHelper::avoidLazyInitializationExceptionCondition);
     }
 
 

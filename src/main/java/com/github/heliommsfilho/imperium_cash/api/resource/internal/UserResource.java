@@ -50,7 +50,7 @@ public class UserResource extends AbstractResource {
                             @ApiResponse(code = 404, message = "Cannot find User with specified ID"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
     public ResponseEntity<?> getById(@PathVariable @ApiParam(value = "The User ID", required = true, type = "long", example = "0") Long id) {
-        return okOrNoContent(userService.getById(id), UserOutput.class);
+        return okOrNoContent(userService.getById(id).orElse(null), UserOutput.class);
     }
 
     @GetMapping(value = "/uuid/{uuid}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -61,6 +61,6 @@ public class UserResource extends AbstractResource {
                             @ApiResponse(code = 404, message = "Cannot find User with specified UUID"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
     public ResponseEntity<?> getByTenantId(@PathVariable @ApiParam(value = "The User UUID", required = true, type = "string", example = "0") String uuid) {
-        return okOrNoContent(userService.getByTenantUUID(uuid), UserOutput.class);
+        return okOrNoContent(userService.getByTenantUUID(uuid).orElse(null), UserOutput.class);
     }
 }

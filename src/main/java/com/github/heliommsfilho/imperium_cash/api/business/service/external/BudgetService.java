@@ -11,12 +11,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class BudgetServicie {
+public class BudgetService {
 
     private final BudgetRepository budgetRepository;
 
     @Autowired
-    public BudgetServicie(BudgetRepository budgetRepository) {
+    public BudgetService(BudgetRepository budgetRepository) {
         this.budgetRepository = budgetRepository;
     }
 

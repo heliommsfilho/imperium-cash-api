@@ -58,6 +58,6 @@ public class CountryResource extends AbstractResource {
                             @ApiResponse(code = 404, message = "Cannot find Country with specified ID"),
                             @ApiResponse(code = 500, message = "Internal server error (please report)")})
     public ResponseEntity<?> findById(@PathVariable @ApiParam(value = "The Country ID", required = true, type = "long", example = "0") Long id) {
-        return okOrNoContent(this.countryService.getOne(id), CountryOutput.class);
+        return okOrNoContent(this.countryService.getOne(id).orElse(null), CountryOutput.class);
     }
 }

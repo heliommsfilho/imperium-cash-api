@@ -6,7 +6,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.Payee;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.PayeeRepository;
 import com.github.heliommsfilho.imperium_cash.api.exception.EntityAlreadyRegisteredException;
 import com.github.heliommsfilho.imperium_cash.api.exception.EntityNotRegisteredException;
-import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
+import com.github.heliommsfilho.imperium_cash.api.helper.MapperHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -36,7 +36,7 @@ public class PayeeServiceTests {
     private PayeeRepository payeeRepository;
 
     @Mock
-    private BudgetServicie budgetServicie;
+    private BudgetService budgetService;
 
     @Mock
     private PayeeService payeeService;
@@ -51,7 +51,7 @@ public class PayeeServiceTests {
         /* Bypass Budget validation to mock a valid Budget */
         doNothing().when(payeeService).validate(any());
 
-        Payee payeeInput = EntityDTOHelper.getInstance().map(getInput(), Payee.class);
+        Payee payeeInput = MapperHelper.getInstance().map(getInput(), Payee.class);
         Payee savedPayee = payeeService.create(payeeInput);
 
         Assertions.assertEquals(1L, savedPayee.getId());
@@ -63,12 +63,12 @@ public class PayeeServiceTests {
     @DisplayName("fail due non existent Budget")
     void createNewPayee_withNonExistentBudget__shouldFail() {
         /* Mock a non existent Budget for given ID being returned from Database */
-        when(budgetServicie.getBudget(any())).thenReturn(Optional.empty());
-        when(payeeService.getBudgetServicie()).thenReturn(this.budgetServicie);
+        when(budgetService.getBudget(any())).thenReturn(Optional.empty());
+        when(payeeService.getBudgetService()).thenReturn(this.budgetService);
         when(payeeService.create(any())).thenCallRealMethod();
         doCallRealMethod().when(payeeService).validate(any());
 
-        Payee payeeInput = EntityDTOHelper.getInstance().map(getInput(), Payee.class);
+        Payee payeeInput = MapperHelper.getInstance().map(getInput(), Payee.class);
         Exception exception = Assertions.assertThrows(EntityNotRegisteredException.class,
                                                       () -> payeeService.create(payeeInput));
 
@@ -79,16 +79,15 @@ public class PayeeServiceTests {
     @DisplayName("fail due already registered Payee name")
     void createNewPayee_withAlreadyRegisteredName__shouldFail() {
         Budget mockFoundBudget = GenericBuilder.build(Budget.class).with(b -> b.setId(2L)).get();
-        Payee mockFoundPayee = GenericBuilder.build(Payee.class).with(p -> p.setName("Payee Name")).get();
 
-        when(payeeRepository.getByName(anyString())).thenReturn(Optional.of(mockFoundPayee));
-        when(budgetServicie.getBudget(any())).thenReturn(Optional.of(mockFoundBudget));
-        when(payeeService.getBudgetServicie()).thenReturn(this.budgetServicie);
+        when(payeeRepository.findByName(anyString())).thenReturn(Optional.of(1L));
+        when(budgetService.getBudget(any())).thenReturn(Optional.of(mockFoundBudget));
+        when(payeeService.getBudgetService()).thenReturn(this.budgetService);
         when(payeeService.getPayeeRepository()).thenReturn(this.payeeRepository);
         when(payeeService.create(any())).thenCallRealMethod();
         doCallRealMethod().when(payeeService).validate(any());
 
-        Payee payeeInput = EntityDTOHelper.getInstance().map(getInput(), Payee.class);
+        Payee payeeInput = MapperHelper.getInstance().map(getInput(), Payee.class);
         Exception exception = Assertions.assertThrows(EntityAlreadyRegisteredException.class,
                                                       () -> payeeService.create(payeeInput));
 

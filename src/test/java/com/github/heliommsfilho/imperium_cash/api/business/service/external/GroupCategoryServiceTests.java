@@ -4,7 +4,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.GroupCategory;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.GroupCategoryInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.GroupCategoryRepository;
-import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
+import com.github.heliommsfilho.imperium_cash.api.helper.MapperHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -39,7 +39,7 @@ class GroupCategoryServiceTests {
     void createNewGroupCategory() {
         when(repository.save(any())).thenReturn(getMockResoultInput());
 
-        GroupCategory groupCategory = EntityDTOHelper.getInstance().map(getInput(), GroupCategory.class);
+        GroupCategory groupCategory = MapperHelper.getInstance().map(getInput(), GroupCategory.class);
         GroupCategory savedGroupCategory = service.create(groupCategory);
 
         Assertions.assertEquals(1L, savedGroupCategory.getId());

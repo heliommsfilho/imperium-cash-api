@@ -60,10 +60,6 @@ public class ImperiumCashCustomProperties {
             public static class Connection {
 
                 /**
-                 * Datasource name.
-                 */
-                private String name;
-                /**
                  * Database JDBC URL.
                  */
                 private String url;

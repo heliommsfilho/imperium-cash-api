@@ -38,9 +38,7 @@ class BudgetResourceTests extends AbstractTestResource {
     @DisplayName("return JSON Budget not fetched")
     void returnBudgetNotFetched() throws Exception {
         okMockMvc.perform(get("/budget/{id}", 1))
-                 .andExpect(jsonPath("$.name", Matchers.is("Finances in Portugal")))
-                 .andExpect(jsonPath("$.payees", Matchers.nullValue()))
-                 .andExpect(jsonPath("$.groupCategories", Matchers.nullValue()));
+                 .andExpect(jsonPath("$.name", Matchers.is("Finances in Portugal")));
     }
 
     @Test
@@ -62,11 +60,7 @@ class BudgetResourceTests extends AbstractTestResource {
         okMockMvc.perform(get("/budget"))
                 .andExpect(jsonPath("$", Matchers.hasSize(2)))
                 .andExpect(jsonPath("$[0].name", Matchers.is("Finances in Portugal")))
-                .andExpect(jsonPath("$[0].payees", Matchers.nullValue()))
-                .andExpect(jsonPath("$[0].groupCategories", Matchers.nullValue()))
-                .andExpect(jsonPath("$[1].name", Matchers.is("Finances in Brazil")))
-                .andExpect(jsonPath("$[1].payees", Matchers.nullValue()))
-                .andExpect(jsonPath("$[1].groupCategories", Matchers.nullValue()));
+                .andExpect(jsonPath("$[1].name", Matchers.is("Finances in Brazil")));
     }
 
     @Test

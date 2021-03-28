@@ -7,7 +7,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.CurrencyFormat;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.DateFormat;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.User;
 import com.github.heliommsfilho.imperium_cash.api.domain.repository.budget.BudgetRepository;
-import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
+import com.github.heliommsfilho.imperium_cash.api.helper.MapperHelper;
 import com.github.heliommsfilho.imperium_cash.api.helper.GenericBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,11 +32,11 @@ class BudgetServiceTests {
 
     @Mock
     private BudgetRepository budgetRepository;
-    private BudgetServicie budgetService;
+    private BudgetService budgetService;
 
     @BeforeEach
     public void init() {
-        budgetService = new BudgetServicie(budgetRepository);
+        budgetService = new BudgetService(budgetRepository);
     }
 
     @Test
@@ -62,7 +62,7 @@ class BudgetServiceTests {
     void createNewBudget() {
         when(budgetRepository.save(any())).thenReturn(getResultCreateBudget());
 
-        Budget budget = EntityDTOHelper.getInstance().map(getInput(), Budget.class);
+        Budget budget = MapperHelper.getInstance().map(getInput(), Budget.class);
         Budget savedBudget = budgetService.create(budget);
 
         Assertions.assertNotNull(savedBudget.getUuid());

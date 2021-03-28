@@ -5,7 +5,7 @@ import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Budget_;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.GroupCategory;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Payee;
-import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
+import com.github.heliommsfilho.imperium_cash.api.helper.MapperHelper;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -53,7 +53,7 @@ public class BudgetRepositoryImpl implements BudgetRepositoryQuery {
         List<Predicate> where = new ArrayList<>();
         where.add(cb.equal(root.get(Budget_.ID), id));
 
-        return EntityDTOHelper.getSingleResult(doQuery(criteria, where, fetchModes));
+        return MapperHelper.getSingleResult(doQuery(criteria, where, fetchModes));
     }
 
     private List<Budget> doQuery(CriteriaQuery<Budget> criteria, List<Predicate> where, BudgetFetchMode... fetchModes) {

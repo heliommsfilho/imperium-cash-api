@@ -14,12 +14,12 @@ import java.util.Optional;
 public class PayeeService {
 
     private final PayeeRepository payeeRepository;
-    private final BudgetServicie budgetServicie;
+    private final BudgetService budgetService;
 
     @Autowired
-    public PayeeService(PayeeRepository payeeRepository, BudgetServicie budgetServicie) {
+    public PayeeService(PayeeRepository payeeRepository, BudgetService budgetService) {
         this.payeeRepository = payeeRepository;
-        this.budgetServicie = budgetServicie;
+        this.budgetService = budgetService;
     }
 
     public Payee create(Payee payee) {
@@ -32,10 +32,10 @@ public class PayeeService {
     }
 
     void validate(Payee payeeInput) {
-        Optional<Budget> budgetFound = getBudgetServicie().getBudget(payeeInput.getBudget().getId());
+        Optional<Budget> budgetFound = getBudgetService().getBudget(payeeInput.getBudget().getId());
         budgetFound.orElseThrow(() -> new EntityNotRegisteredException("Payee", payeeInput.getBudget().getId().toString()));
 
-        Optional<Payee> payeeFound = getPayeeRepository().getByName(payeeInput.getName());
+        Optional<Long> payeeFound = getPayeeRepository().findByName(payeeInput.getName());
         payeeFound.ifPresent(p -> { throw new EntityAlreadyRegisteredException("Payee", payeeInput.getName()); });
     }
 
@@ -43,7 +43,7 @@ public class PayeeService {
         return payeeRepository;
     }
 
-    public BudgetServicie getBudgetServicie() {
-        return budgetServicie;
+    public BudgetService getBudgetService() {
+        return budgetService;
     }
 }

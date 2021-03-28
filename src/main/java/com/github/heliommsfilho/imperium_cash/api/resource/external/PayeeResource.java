@@ -4,7 +4,6 @@ import com.github.heliommsfilho.imperium_cash.api.business.service.external.Paye
 import com.github.heliommsfilho.imperium_cash.api.domain.api.input.PayeeInput;
 import com.github.heliommsfilho.imperium_cash.api.domain.api.output.PayeeOutput;
 import com.github.heliommsfilho.imperium_cash.api.domain.model.Payee;
-import com.github.heliommsfilho.imperium_cash.api.helper.EntityDTOHelper;
 import com.github.heliommsfilho.imperium_cash.api.resource.AbstractResource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

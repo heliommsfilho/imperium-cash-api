@@ -36,10 +36,7 @@ public class UserService {
     }
 
     private void validate(User userInput) throws ApplicationDomainException {
-        Optional<User> userFound = userRepository.findByEmail(userInput.getEmail());
-
-        if (userFound.isPresent()) {
-            throw new EntityAlreadyRegisteredException("User", userInput.getEmail());
-        }
+        Optional<Long> userFound = userRepository.findByEmail(userInput.getEmail());
+        userFound.ifPresent(u -> { throw new EntityAlreadyRegisteredException("User", userInput.getEmail()); });
     }
 }

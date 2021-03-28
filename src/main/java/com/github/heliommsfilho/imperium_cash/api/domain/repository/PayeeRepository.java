@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface PayeeRepository extends JpaRepository<Payee, Long> {
 
-    @Query("SELECT p FROM Payee p WHERE lower(p.name) = lower(:name)")
-    Optional<Payee> getByName(@Param("name") String name);
+    @Query("SELECT p.id FROM Payee p WHERE LOWER(p.name) = LOWER(:name)")
+    Optional<Long> findByName(@Param("name") String name);
 }
